@@ -10,9 +10,7 @@ namespace BenQuru.eMES.Web.Controllers
     {
         public ActionResult Index()
         {
-            ViewBag.Title = "Home Page";
-
-            return View();
+            return View("FLogin");
         }
     }
 }
