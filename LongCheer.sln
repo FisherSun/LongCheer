@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LongCheer", "LongCheer\Long
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BenQGuru.eMES.Web", "BenQuru.eMES.Web\BenQGuru.eMES.Web.csproj", "{C3CC5A9A-29F4-42F5-99EC-9D28C16B9D23}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BenQGuru.eMES.Web.EntityFramework", "BenQGuru.eMES.Web.EntityFramework\BenQGuru.eMES.Web.EntityFramework.csproj", "{19EBBCA2-3F4E-4A97-A417-FF9B7F2AF504}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{C3CC5A9A-29F4-42F5-99EC-9D28C16B9D23}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C3CC5A9A-29F4-42F5-99EC-9D28C16B9D23}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C3CC5A9A-29F4-42F5-99EC-9D28C16B9D23}.Release|Any CPU.Build.0 = Release|Any CPU
+		{19EBBCA2-3F4E-4A97-A417-FF9B7F2AF504}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{19EBBCA2-3F4E-4A97-A417-FF9B7F2AF504}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{19EBBCA2-3F4E-4A97-A417-FF9B7F2AF504}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{19EBBCA2-3F4E-4A97-A417-FF9B7F2AF504}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
