@@ -1,0 +1,17 @@
+﻿<nav>
+    <span data-bind="visible:!IsPopDialog,text:rm.label.EachPage()+' '"></span>
+    <select data-bind="visible:!IsPopDialog,options: RowsOfEachPage, optionsText: 'Id', optionsValue: 'Id', value:RowCount"></select>
+    <span style="margin-right:20px;" data-bind="visible:!IsPopDialog,text:' '+ rm.label.Records()"></span>
+    <span style="cursor:pointer;margin-right:20px;" data-bind="click:GoFirst,text:rm.label.FisrtPage"></span>
+    <span style="cursor:pointer;margin-right:20px;" data-bind="click:GoPre,text:rm.label.PrePage"></span>
+    <!--ko foreach:NavigatePages-->
+    <span style="cursor:pointer;margin-right:20px;" data-bind="attr:{class:$data==$parent.CurrentPage() ? 'selectPage' : ''},text:$data,click:$parent.GoPage"></span>
+    <!--/ko-->
+    <span style="cursor:pointer;margin-right:20px;" data-bind="click:GoNext,text:rm.label.NextPage"></span>
+    <span style="cursor:pointer;margin-right:20px;" data-bind="click:GoLast,text:rm.label.LastPage "></span>
+    <span data-bind="text:rm.label.GoTo"></span> <input type="number" min="0" step="1" max="999999" style="width:50px" data-bind="value:GoTo,valueUpdate: 'afterkeydown'" /> <input type="button" data-bind="click:GoToPage" value="Go" />
+    <!--ko if:TotalCount-->
+    <span style="margin-left:20px;" data-bind="text: rm.label.TotalPages().replace('_TotalPages_',TotalPages().length)+'/'+rm.label.TotalRows().replace('_TotalRows_',TotalCount())"></span>
+    <!--/ko-->
+</nav>
+

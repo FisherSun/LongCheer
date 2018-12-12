@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BenQGuru.eMES.Web", "BenQur
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BenQGuru.eMES.Web.EntityFramework", "BenQGuru.eMES.Web.EntityFramework\BenQGuru.eMES.Web.EntityFramework.csproj", "{19EBBCA2-3F4E-4A97-A417-FF9B7F2AF504}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BenQGuru.eMES.Model", "BenQGuru.eMES.Model\BenQGuru.eMES.Model.csproj", "{A1C973BC-366C-48D7-831A-D03A60C26CA6}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{19EBBCA2-3F4E-4A97-A417-FF9B7F2AF504}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{19EBBCA2-3F4E-4A97-A417-FF9B7F2AF504}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{19EBBCA2-3F4E-4A97-A417-FF9B7F2AF504}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A1C973BC-366C-48D7-831A-D03A60C26CA6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A1C973BC-366C-48D7-831A-D03A60C26CA6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A1C973BC-366C-48D7-831A-D03A60C26CA6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A1C973BC-366C-48D7-831A-D03A60C26CA6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
