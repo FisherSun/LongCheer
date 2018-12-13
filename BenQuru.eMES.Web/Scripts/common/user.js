@@ -5,7 +5,7 @@
             router.map([
                 { route: '', title: '首页', moduleId: 'app/home' },
                 //{ route: 'home', title: '首页', moduleId: 'app/home' },
-                { route: 'login', title: '登陆', moduleId: 'app/login' },
+                { route: 'login', title: '登陆', moduleId: 'app/login/login' },
                 { route: 'UnauthorizedUrl', title: '没有权限访问', moduleId: 'app/error' },
                 { route: 'check(/:id)', title: 'bbb', moduleId: 'app/check/index' },
                 { route: 'query', title: '登陆', moduleId: 'app/query/index' },

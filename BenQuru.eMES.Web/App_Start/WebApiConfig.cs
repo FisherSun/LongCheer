@@ -10,6 +10,10 @@ namespace BenQuru.eMES.Web
         public static void Register(HttpConfiguration config)
         {
             // Web API 配置和服务
+            //config.AddODataQueryFilter();
+            //config.MessageHandlers.Add(new CultureHandler());
+
+            //config.Filters.Add(new ApiActionFilter());
 
             // Web API 路由
             config.MapHttpAttributeRoutes();

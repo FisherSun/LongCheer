@@ -149,6 +149,7 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\FLoginController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -163,6 +164,17 @@
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
+    <Content Include="Scripts\app\error.html" />
+    <Content Include="Scripts\app\error.js" />
+    <Content Include="Scripts\app\flash.html" />
+    <Content Include="Scripts\app\flash.js" />
+    <Content Include="Scripts\app\home.html" />
+    <Content Include="Scripts\app\home.js" />
+    <Content Include="Scripts\app\login.html" />
+    <Content Include="Scripts\app\login.js" />
+    <Content Include="Scripts\app\main-bak.js" />
+    <Content Include="Scripts\app\shell.html" />
+    <Content Include="Scripts\app\shell.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
@@ -174,7 +186,6 @@
     <Content Include="Scripts\common\utility.js" />
     <Content Include="Scripts\Config\client.js" />
     <Content Include="Scripts\Config\config.js" />
-    <Content Include="Scripts\Config\services.js" />
     <Content Include="Scripts\durandal\activator.js" />
     <Content Include="Scripts\durandal\app.js" />
     <Content Include="Scripts\durandal\binder.js" />
@@ -494,6 +505,7 @@
     <Content Include="Skin\Image\up_0.gif" />
     <Content Include="Skin\Image\view.gif" />
     <Content Include="Skin\Image\violet.gif" />
+    <Content Include="Views\Home\login.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -512,7 +524,6 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Models\" />
-    <Folder Include="Scripts\app\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

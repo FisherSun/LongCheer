@@ -28,7 +28,7 @@
             BORDER-RIGHT: 0px;
             BORDER-TOP: 0px;
             FONT-SIZE: 12px;
-            BACKGROUND-IMAGE: url(../../Skin/Image/buttonlogin_over.gif);
+            BACKGROUND-IMAGE: url(../../../Skin/Image/buttonlogin_over.gif);
             BORDER-LEFT: 0px;
             WIDTH: 69px;
             PADDING-TOP: 3px;
@@ -41,7 +41,7 @@
             BORDER-RIGHT: 0px;
             BORDER-TOP: 0px;
             FONT-SIZE: 12px;
-            BACKGROUND-IMAGE: url(../../Skin/Image/buttonlogin_out.gif);
+            BACKGROUND-IMAGE: url(../../../Skin/Image/buttonlogin_out.gif);
             BORDER-LEFT: 0px;
             WIDTH: 69px;
             PADDING-TOP: 3px;
@@ -55,7 +55,7 @@
             BORDER-RIGHT: 0px;
             BORDER-TOP: 0px;
             FONT-SIZE: 12px;
-            BACKGROUND-IMAGE: url(../../Skin/Image/login_button.gif);
+            BACKGROUND-IMAGE: url(../../../Skin/Image/login_button.gif);
             BORDER-LEFT: 0px;
             WIDTH: 180px;
             PADDING-TOP: 3px;
@@ -73,7 +73,7 @@
         }
     </STYLE>
 </head>
-<body onload="JavaScript:document.all.txtUserCode.focus();" style=" background-image:url(../../Skin/Image/BackgroundImage.jpg); background-repeat:no-repeat; background-position: center center ;BACKGROUND-COLOR: #F7F3F7;">
+<body onload="JavaScript:document.all.txtUserCode.focus();" style=" background-image:url(../../../Skin/Image/BackgroundImage.jpg); background-repeat:no-repeat; background-position: center center ;BACKGROUND-COLOR: #F7F3F7;">
     <form>
         <TABLE style="height:100%;width:100%" cellSpacing="0" cellPadding="0" border="0">
             <TBODY>
@@ -82,13 +82,13 @@
                         <TABLE cellSpacing="0" cellPadding="0" width="570" align="center" border="0">
                             <TBODY>
                                 <TR>
-                                    <TD><IMG runat="server" id="ImageHead" height="203" src="../../Skin/Image/Login_banner_emes.jpg" width="570"></TD>
+                                    <TD><IMG runat="server" id="ImageHead" height="203" src="../../../Skin/Image/Login_banner_emes.jpg" width="570"></TD>
                                 </TR>
                                 <TR>
-                                    <TD><IMG height="20" id="ImageCenter" runat="server" src="../../Skin/Image/Login_copyright_bg_text2.jpg" width="570"></TD>
+                                    <TD><IMG height="20" id="ImageCenter" runat="server" src="../../../Skin/Image/Login_copyright_bg_text2.jpg" width="570"></TD>
                                 </TR>
                                 <TR>
-                                    <TD style="background-image:url(../../Skin/Image/Login_logo.jpg);vertical-align:top" class="bg" id="ImageLogoTD" runat="server">
+                                    <TD style="background-image:url(../../../Skin/Image/Login_logo.jpg);vertical-align:top" class="bg" id="ImageLogoTD" runat="server">
                                         <TABLE cellSpacing="0" cellPadding="0" style="width:100%" border="0">
                                             <TBODY>
                                                 <TR>
@@ -132,7 +132,7 @@
                                                                 <TR>
                                                                     <TD><INPUT id="loguser" type="hidden" name="loguser" runat="server"><INPUT id="logintimes" type="hidden" value="0" name="logintimes" runat="server"></TD>
                                                                     <TD colspan="3">
-                                                                        <input type="button" style="width:180px" value="登  录" class="bt" />
+                                                                        <input type="button" style="width:180px" value="登  录" class="bt" data-bind="click:Login" />
                                                                     </TD>
                                                                 </TR>
                                                                 <tr>
