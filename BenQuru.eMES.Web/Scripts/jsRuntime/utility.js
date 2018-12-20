@@ -119,9 +119,6 @@
                 }
                 else {
                     var templatePath = "../TempFiles/HtmlTemplates/" + name + ".html";
-                    //if (GeelyCRM.Main.Utility.RootPath != null) {
-                    //    templatePath = GeelyCRM.Main.Utility.RootPath + "HtmlTemplates/" + name + ".html";
-                    //}
                     var now = new Date();
                     var templatePath = templatePath + "?data=" + now.getSeconds().toString();
 

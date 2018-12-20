@@ -74,7 +74,7 @@
     </STYLE>
 </head>
 <body onload="JavaScript:document.all.txtUserCode.focus();" style=" background-image:url(../../../Skin/Image/BackgroundImage.jpg); background-repeat:no-repeat; background-position: center center ;BACKGROUND-COLOR: #F7F3F7;">
-    <form>
+    <form data-bind="with:objectValue">
         <TABLE style="height:100%;width:100%" cellSpacing="0" cellPadding="0" border="0">
             <TBODY>
                 <TR>
@@ -99,13 +99,13 @@
                                                                 <TR>
                                                                     <TD vAlign="bottom" align="right"><asp:label id="lblUserCode" runat="server">用户</asp:label></TD>
                                                                     <TD vAlign="bottom" colspan="3">
-                                                                        <input type="text" id="txtUserCode" class="inputbox" maxlength="40" style="width:180px" tabindex="1" />
+                                                                        <input type="text" id="txtUserCode" data-bind="value:usercode" class="inputbox" maxlength="40" style="width:180px" tabindex="1" />
                                                                     </TD>
                                                                 </TR>
                                                                 <TR>
                                                                     <TD vAlign="bottom" align="right"><asp:label id="lblPassword" runat="server">密码</asp:label></TD>
                                                                     <TD colspan="3">
-                                                                        <input type="password" id="txtPassword" class="inputbox" maxlength="40" style="width:180px" tabindex="2" />
+                                                                        <input type="password" id="txtPassword" data-bind="value:password" class="inputbox" maxlength="40" style="width:180px" tabindex="2" />
                                                                     </TD>
                                                                 </TR>
                                                                 <TR>
@@ -132,7 +132,7 @@
                                                                 <TR>
                                                                     <TD><INPUT id="loguser" type="hidden" name="loguser" runat="server"><INPUT id="logintimes" type="hidden" value="0" name="logintimes" runat="server"></TD>
                                                                     <TD colspan="3">
-                                                                        <input type="button" style="width:180px" value="登  录" class="bt" data-bind="click:Login" />
+                                                                        <input type="button" style="width:180px" value="登  录" class="bt" data-bind="click:$root.Login" />
                                                                     </TD>
                                                                 </TR>
                                                                 <tr>

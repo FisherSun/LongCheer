@@ -10,7 +10,7 @@
             }
             return null;
         },
-        //增加一个含参数查询的方法 by zhanghai 2017-07-26
+        //增加一个含参数查询的方法
         getSyncDicWithParams: function (name, params, target) {
             var url = s.getUrl(name);
             if (url.indexOf("?$filter=") > 0) {

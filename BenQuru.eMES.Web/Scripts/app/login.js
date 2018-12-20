@@ -3,15 +3,22 @@
     function (app, router, s, utility, rm, dic, pm, user) {
         var f = function () {
             var self = this;
-
+            this.rm = rm.global;
+            this.objectValue = {
+                usercode: ko.observable(),
+                password: ko.observable(),
+            };
             this.Login = function () {
-                $.isLoading();
-
-                //setTimeout(function () { }, 3000);
-
-
-                $.isLoading('hide');
+                if (!self.objectValue.usercode()) {
+                    app.showMessage('请输入用户名', self.rm.message.alertTitle());
+                    return;
+                }
+                if (!self.objectValue.password()) {
+                    app.showMessage('请输入密码', self.rm.message.alertTitle());
+                    return;
+                }
             }
+            
         }
         return f;
     });

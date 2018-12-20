@@ -3,8 +3,7 @@
         var mapRouter = function () {
             router.reset();
             router.map([
-                { route: '', title: '首页', moduleId: 'app/home' },
-                //{ route: 'home', title: '首页', moduleId: 'app/home' },
+                { route: '', title: '首页', moduleId: 'app/home',nav:true },
                 { route: 'login', title: '登陆', moduleId: 'app/login/login' },
                 { route: 'UnauthorizedUrl', title: '没有权限访问', moduleId: 'app/error' },
                 { route: 'check(/:id)', title: 'bbb', moduleId: 'app/check/index' },
@@ -66,8 +65,6 @@
                 { route: 'VehCar/InWarehouseMgt/VehCarMoveInList', title: '出入库记录', moduleId: 'app/VehCar/InWarehouseMgt/VehCarMoveInList' },
                 { route: 'VehCar/OutWarehouseMgt/VehCarrierBillList', title: '承运单管理', moduleId: 'app/VehCar/OutWarehouseMgt/VehCarrierBillList' },
                 { route: 'VehCar/OutWarehouseMgt/VehCarrierBill/:id', title: '承运单信息', moduleId: 'app/VehCar/OutWarehouseMgt/VehCarrierBill' },
-                //{ route: 'VehCar/OutWarehouseMgt/CarrierBillPrint', title: '承运单打印', moduleId: 'app/VehCar/OutWarehouseMgt/CarrierBillPrint' },
-                //{ route: 'VehCar/OutWarehouseMgt/CarrierBillBeforePrint/:id', title: '承运单打印', moduleId: 'app/VehCar/OutWarehouseMgt/CarrierBillBeforePrint' },
                 { route: 'VehCar/OutWarehouseMgt/CarrierBillNestPrint/:id', title: '承运单打印', moduleId: 'app/VehCar/OutWarehouseMgt/CarrierBillNestPrint' },
                 { route: 'VehCar/OutWarehouseMgt/CarrierBillElectronicPrint/:id', title: '电子承运单打印', moduleId: 'app/VehCar/OutWarehouseMgt/CarrierBillElectronicPrint' },
                 { route: 'VehCar/OutWarehouseMgt/CarrierBillAssignChariot/:id', title: '分配板车', moduleId: 'app/VehCar/OutWarehouseMgt/CarrierBillAssignChariot' },

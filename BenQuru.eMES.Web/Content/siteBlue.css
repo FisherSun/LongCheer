@@ -1,0 +1,558 @@
+﻿.df-bottom-line {
+    border-bottom: solid;
+    border-bottom-width: thin;
+    border-bottom-color: #ddd;
+}
+
+.isloading-wrapper.isloading-right {
+    margin-left: 10px;
+}
+
+.isloading-overlay {
+    position: relative;
+    text-align: center;
+}
+
+    .isloading-overlay .isloading-wrapper {
+        background: #9ebdef;
+        display: inline-block;
+        margin: 0 auto;
+        padding: 10px 20px;
+        top: 10%;
+        z-index: 9000;
+    }
+
+
+.mdl-geely-cep {
+}
+
+    .mdl-geely-cep .df-text-justify {
+        text-align: justify;
+        text-justify: distribute-all-lines; /*ie6-8*/
+        text-align-last: justify; /* ie9*/
+        -moz-text-align-last: justify; /*ff*/
+        -webkit-text-align-last: justify; /*chrome 20+*/
+    }
+
+@media screen and (-webkit-min-device-pixel-ratio:0) { /* chrome*/
+    .mdl-geely-cep .df-text-justify:after {
+        content: ".";
+        display: inline-block;
+        width: 100%;
+        overflow: hidden;
+        height: 0;
+    }
+}
+
+.mdl-geely-cep .mdl-badge.df-badge--gray-background[data-badge]:after {
+    color: rgb(255, 255, 255);
+    background: rgb(128, 128, 128);
+    box-shadow: 0 0 1px gray;
+}
+
+.mdl-geely-cep .df-form .mdl-textfield__input {
+    padding-top: 0em;
+    padding-bottom: 0em;
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+
+.mdl-geely-cep .df-form .mdl-textfield {
+    padding-top: 0em;
+    padding-bottom: 0em;
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+
+.hisdialog {
+    max-height: 480px; /* height of the device for example*/
+    overflow-y: auto; /* if the content is nore than max-height the scrollbar will show up*/
+}
+
+.hisdialogbar {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 1024px;
+    background: rgba(0,0,0,0.7);
+    z-index: 999;
+    display: none;
+}
+
+.hisdialog, .hismodal-content {
+    position: relative;
+    margin: 0 auto; /*top:20%; left:20%;*/
+    min-width: 750px;
+    min-height: 280px;
+    height: auto;
+    border-radius: 10px;
+    background: #F4F4F4;
+    box-shadow: 0 0 5px #000;
+    overflow: hidden;
+    z-index: 9999;
+}
+
+.hisdialog_head {
+    height: 65px;
+    line-height: 65px;
+    padding: 0 20px;
+    font-size: 22px;
+}
+
+.hisdialog_body {
+    width: 100%; /*min-height:200px;*/
+    height: 340px;
+    padding: 20px; /*max-height:550px;*/
+    overflow: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+.hisdialog_cont { /*margin:20px;*/
+    height: auto;
+    /*min-height: 150px;*/
+    overflow: hidden;
+}
+
+.hisdialog_iframe {
+    overflow: scroll;
+    width: 100%;
+    height: 300px;
+}
+
+
+.hisdialog_bot { /*position:absolute;*/
+    bottom: 0;
+    width: 100%;
+    height: 70px; /*line-height:65px;*/
+    padding: 10px 15px;
+    text-align: center;
+    background: #eee;
+    z-index: 9999;
+    border-top: 1px solid #ddd;
+}
+
+    .hisdialog_bot button {
+        margin: 0 20px;
+    }
+
+
+/*list_demo*/
+.table > tbody > tr > td, .table > tbody > tr > th, .table > tfoot > tr > td, .table > tfoot > tr > th, .table > thead > tr > td, .table > thead > tr > th {
+    padding: 0;
+}
+
+body, input, select, textarea, table.ms-crm-Loading, DIV.ms-crm-Grid-Title {
+    font-family: Microsoft\000020YaHei,SimSun,Tahoma,Arial;
+    font: 12px;
+}
+
+.panel-heading {
+    padding: 8px 11px;
+    border-bottom: 0 none;
+}
+
+.panel {
+    border: 0 none;
+}
+
+.panel-body {
+    padding: 14px 0 0 0;
+}
+
+.form-control {
+    height: 25px;
+    line-height: 13px;
+}
+
+
+/*add*/
+.panel-default > .panel-heading {
+    background: #f8f8f8;
+}
+
+.form-horizontal .form-control, .form-inline .form-control {
+    padding: 0 0;
+    width: 100%;
+}
+
+.table > tbody > tr > td, .table > tbody > tr > th, .table > tfoot > tr > td, .table > tfoot > tr > th, .table > thead > tr > td, .table > thead > tr > th {
+    color: #333333;
+}
+
+th {
+    font-weight: normal;
+}
+
+td {
+    font-size: 10px;
+}
+
+.table-striped > tbody > tr:nth-of-type(odd) {
+    background: #f5f5f5;
+}
+
+#applicationHost .row .durandal-wrapper .table tr:hover {
+    background: #C6E3F5;
+}
+
+label {
+    font-weight: normal;
+    text-align: right;
+}
+
+.durandal-wrapper .durandal-wrapper .panel-heading .row .col-md-1 col-xs-4 span span {
+    font-size: 12px;
+}
+
+.input-group-addon {
+    padding: 3px 12px;
+}
+
+
+@media print {
+    .noprint {
+        visibility: hidden;
+    }
+}
+
+
+/*弹窗样式*/
+.dialogbar {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 1024px;
+    background: rgba(0,0,0,0.7);
+    z-index: 999;
+    display: none;
+}
+
+.dialog, .modal-content {
+    position: relative;
+    margin: 0 auto; /*top:20%; left:20%;*/
+    min-width: 750px;
+    min-height: 280px;
+    height: auto;
+    border-radius: 10px;
+    background: #F4F4F4;
+    box-shadow: 0 0 5px #000;
+    overflow: hidden;
+    z-index: 9999;
+}
+
+.dialog, .modal-content2 {
+    min-width: 600px;
+}
+
+    .dialog.w450 {
+        min-width: 450px;
+    }
+
+.dialog_head {
+    height: 45px;
+    line-height: 45px;
+    padding: 0 20px;
+    font-size: 22px;
+}
+
+.dialog_body {
+    width: 100%; /*min-height:200px;*/
+    height: auto;
+    padding: 15px; /*max-height:550px;*/
+    overflow: auto;
+}
+
+.dialog_cont { /*margin:20px;*/
+    height: auto;
+    min-height: 150px;
+    overflow: hidden;
+}
+
+.dialog_iframe {
+    overflow: scroll;
+    width: 100%;
+    height: 450px;
+}
+
+.dialog_bot { /*position:absolute;*/
+    bottom: 0;
+    width: 100%;
+    height: 70px; /*line-height:65px;*/
+    padding: 10px 15px;
+    text-align: center;
+    background: #eee;
+    z-index: 9999;
+    border-top: 1px solid #ddd;
+}
+
+    .dialog_bot button {
+        margin: 0 20px;
+    }
+
+.selectbar {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+}
+
+    .selectbar li {
+        position: relative;
+        margin: 5px;
+        min-width: 100px;
+        height: 40px;
+        line-height: 40px; /*padding:0 10px;*/
+        float: left; /*background:#eee; border:1px solid #ddd*/
+    }
+
+        .selectbar li div.pure-radio-group {
+            width: 100%;
+            height: 100%;
+        }
+
+.dialog_sceerncenter {
+    left: 21%;
+    top: 1%;
+}
+
+.selectPage {
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+.btnDisable {
+    color: gray;
+    cursor: default;
+}
+
+.btnAbled {
+    color: #333;
+    cursor: pointer;
+}
+
+#remark a {
+    cursor: pointer;
+}
+
+#remark .comments {
+    min-height: 100px;
+    padding: 10px;
+}
+
+.paddingright0 {
+    padding-right: 0;
+}
+
+.paddingLeft0 {
+    padding-left: 0;
+}
+
+.paddingLeftRight0 {
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.navButton {
+    float: left;
+    margin-right: 30px;
+    padding: 0 15px;
+}
+
+.navTitle {
+    /*font-size: 16px;
+    color: #e26a6a;
+    font-weight: 700;
+    font-family: "Open Sans",sans-serif;*/
+}
+
+.bold {
+    font-weight: bold;
+}
+/*邓界面*/
+.mdl-geely-cep .container {
+    width: 97%;
+}
+
+td {
+    font-size: 12px;
+}
+
+.table > tbody > tr > td, .table > tbody > tr > th, .table > tfoot > tr > td, .table > tfoot > tr > th, .table > thead > tr > td, .table > thead > tr > th {
+    color: #444444;
+}
+
+.table > tbody > tr > td, .table > tbody > tr > th, .table > tfoot > tr > td, .table > tfoot > tr > th, .table > thead > tr > td, .table > thead > tr > th {
+    vertical-align: middle;
+}
+
+.form-inline .control-label, .form-horizontal .control-label {
+    padding: 0 0 0 0;
+}
+
+/*页数文字样式*/
+.selectPage {
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+    .selectPage span {
+        margin-left: 0;
+    }
+
+label {
+    font-size: 12px;
+    color: #666666;
+}
+
+body {
+    font-size: 12px;
+}
+
+.row {
+    /*margin-left: 0;*/
+}
+
+.h5, h5 {
+    font-size: 12px;
+}
+
+.dropdown-menu {
+    font-size: 12px;
+}
+
+.form-control {
+    font-size: 12px;
+}
+
+.btnDialog input {
+    cursor: pointer;
+}
+
+.btnDialog .clear {
+    position: absolute;
+    right: 10px;
+    top: 3px;
+    z-index: 1000;
+    cursor: pointer;
+}
+
+.pointer {
+    cursor: pointer;
+}
+
+.redStar {
+    font-style: normal;
+    color: red;
+    vertical-align: text-top;
+}
+
+.form-group {
+    margin-bottom: 7px;
+}
+
+.tableBtn .label {
+    line-height: 2;
+    font-size: 100%;
+    margin-right: 10px;
+}
+
+    .tableBtn .label a {
+        color: #fff;
+        text-decoration: none;
+    }
+
+    .tableBtn .label .close {
+        float: none;
+        font-size: 12px;
+        margin-left: 5px;
+    }
+
+.boldSans {
+    font-weight: bold;
+    font-family: sans-serif;
+}
+
+.inputError {
+    border-color: #a94442;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+    box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+    transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+    color: #a94442;
+}
+
+    .inputError:focus {
+        border-color: #843534;
+        -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 6px #ce8483;
+        box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 6px #ce8483;
+    }
+/*table固定高度，多余部分隐藏*/
+.ctltable {
+    border-collapse: collapse;
+    table-layout: fixed;
+}
+
+    .ctltable td:not(.no-ellipsis) {
+        text-overflow: ellipsis;
+        overflow: hidden;
+        white-space: nowrap;
+    }
+
+.bd-red {
+    background-color: #e43a45 !important;
+}
+
+.bd-orange {
+    background-color: #E87E04 !important;
+    /*opacity: 0.8;*/
+}
+
+.bd-gray {
+    background-color: #555555 !important;
+    /*opacity: 0.8;*/
+}
+
+.bd-lightGray {
+    background-color: #C0C0C0 !important;
+}
+
+.bd-red td, .bd-orange td, .bd-gray td {
+    color: white !important;
+}
+
+    .bd-red td a, .bd-orange td a, .bd-gray td a {
+        color: #9ebdef !important;
+    }
+
+/*表格不折行*/
+table td, th {
+    word-break: keep-all;
+    white-space: nowrap;
+}
+
+.radioStyle {
+    position: relative;
+    display: inline-block;
+    margin-bottom: 0;
+    font-weight: 400;
+    vertical-align: middle;
+    cursor: pointer;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+    .radioStyle input[type='radio'] {
+        margin-right: 5px;
+    }
+
+.yellow {
+    color: #f3c200;
+}
+
+.orange {
+    color: #E87E04;
+}
+
+.red {
+    color: #D91E18;
+}

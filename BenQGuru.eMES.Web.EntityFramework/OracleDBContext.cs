@@ -10,6 +10,8 @@ using Oracle.ManagedDataAccess.EntityFramework;
 using Oracle.ManagedDataAccess;
 using Oracle.ManagedDataAccess.Client;
 
+using BenQGuru.eMES.Web.Model;
+
 namespace BenQGuru.eMES.Web.EntityFramework
 {
     public class OracleDBContext:DbContext
@@ -18,5 +20,7 @@ namespace BenQGuru.eMES.Web.EntityFramework
             :base("name=LongCheerEntities")
         {
         }
+
+        public DbSet<TBLUSER> User { get; set; }
     }
 }

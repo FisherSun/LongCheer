@@ -9,7 +9,6 @@ window.onerror = function fnErrorTrap(sMsg, sUrl, sLine) {
 
 requirejs.config({
     urlArgs: "version=2.0.3",
-    //urlArgs: "bust=" + (new Date()).getTime(),
     baseUrl: baseUrl,
     paths: {
         'plugins': 'durandal/plugins',
@@ -18,8 +17,6 @@ requirejs.config({
         'appConfig': 'Config',
         'jquery-mousewheel': 'jquery.mousewheel.min',
         'datetimepicker': 'jquery.datetimepicker.full.min',
-    },
-    shim: {
     }
 });
 define('jquery', function () { return jQuery; });
@@ -49,33 +46,34 @@ define(['require', 'durandal/system', 'durandal/viewLocator', 'durandal/app',
                 dialog: true
             });
             app.start().then(function () {
-                var code = cm.getQueryString("code");
-                if (code)//UAA登录跳转页面则获取token
-                {
-                    var result = $.ajax({
-                        method: "get",
-                        url: "api/Account/AuthCode/" + code,
-                        async: false
-                    });
-                    if (result.status == 200) {
-                        var accessToken = result.responseJSON;
-                        if (accessToken.access_token)
-                            sessionStorage.setItem("access_token", accessToken.access_token);
-                        var redirectURL = sessionStorage[cm.getQueryString("state")];
-                        if (redirectURL)
-                            window.location = redirectURL;
-                        else
-                            window.location = location.origin;
-                    }
-                    else {
-                        var message = JSON.parse(result.responseText).Message;
-                        app.showMessage(message, rm.global.message.alertTitle());
-                    }
-                    return;
-                }
+                //var code = cm.getQueryString("code");
+                //if (code)//UAA登录跳转页面则获取token
+                //{
+                //    var result = $.ajax({
+                //        method: "get",
+                //        url: "api/Account/AuthCode/" + code,
+                //        async: false
+                //    });
+                //    if (result.status == 200) {
+                //        var accessToken = result.responseJSON;
+                //        if (accessToken.access_token)
+                //            sessionStorage.setItem("access_token", accessToken.access_token);
+                //        var redirectURL = sessionStorage[cm.getQueryString("state")];
+                //        if (redirectURL)
+                //            window.location = redirectURL;
+                //        else
+                //            window.location = location.origin;
+                //    }
+                //    else {
+                //        var message = JSON.parse(result.responseText).Message;
+                //        app.showMessage(message, rm.global.message.alertTitle());
+                //    }
+                //    return;
+                //}
 
-                dic.getAllEnum();
-                app.setRoot('app/shell');
+                //dic.getAllEnum();
+                //app.setRoot('app/shell');
+                app.setRoot('app/login');
             });
         }
         var appError = function () {

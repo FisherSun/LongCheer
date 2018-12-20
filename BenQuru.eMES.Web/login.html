@@ -1,0 +1,160 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>FLogin</title>
+    <STYLE type="text/css">
+        TABLE {
+            FONT-SIZE: 12px;
+            FONT-FAMILY: Arial, Helvetica, sans-serif
+        }
+
+        .bg {
+            BACKGROUND-IMAGE:;
+            background-repeat: no-repeat;
+            WIDTH: 570px;
+            HEIGHT: 153px
+        }
+
+        .inputbox {
+            BORDER-RIGHT: #cccccc 1px solid;
+            BORDER-TOP: #cccccc 1px solid;
+            BORDER-LEFT: #cccccc 1px solid;
+            WIDTH: 141px;
+            BORDER-BOTTOM: #cccccc 1px solid
+        }
+
+        .btover {
+            BORDER-RIGHT: 0px;
+            BORDER-TOP: 0px;
+            FONT-SIZE: 12px;
+            BACKGROUND-IMAGE: url(Skin/Image/buttonlogin_over.gif);
+            BORDER-LEFT: 0px;
+            WIDTH: 69px;
+            PADDING-TOP: 3px;
+            BORDER-BOTTOM: 0px;
+            FONT-FAMILY: Arial, Helvetica, sans-serif;
+            HEIGHT: 19px
+        }
+
+        .btout {
+            BORDER-RIGHT: 0px;
+            BORDER-TOP: 0px;
+            FONT-SIZE: 12px;
+            BACKGROUND-IMAGE: url(Skin/Image/buttonlogin_out.gif);
+            BORDER-LEFT: 0px;
+            WIDTH: 69px;
+            PADDING-TOP: 3px;
+            BORDER-BOTTOM: 0px;
+            BACKGROUND-REPEAT: no-repeat;
+            FONT-FAMILY: Arial, Helvetica, sans-serif;
+            HEIGHT: 19px
+        }
+
+        .bt {
+            BORDER-RIGHT: 0px;
+            BORDER-TOP: 0px;
+            FONT-SIZE: 12px;
+            BACKGROUND-IMAGE: url(Skin/Image/login_button.gif);
+            BORDER-LEFT: 0px;
+            WIDTH: 180px;
+            PADDING-TOP: 3px;
+            BORDER-BOTTOM: 0px;
+            BACKGROUND-REPEAT: no-repeat;
+            FONT-FAMILY: Arial, Helvetica, sans-serif;
+            HEIGHT: 26px
+        }
+
+        .txt {
+            FONT-WEIGHT: bold;
+            FONT-SIZE: 12px;
+            COLOR: #003399;
+            FONT-FAMILY: Arial, Helvetica, sans-serif
+        }
+    </STYLE>
+</head>
+<body onload="JavaScript:document.all.txtUserCode.focus();" style=" background-image:url(Skin/Image/BackgroundImage.jpg); background-repeat:no-repeat; background-position: center center ;BACKGROUND-COLOR: #F7F3F7;">
+    <form>
+        <TABLE style="height:100%;width:100%" cellSpacing="0" cellPadding="0" border="0">
+            <TBODY>
+                <TR>
+                    <TD vAlign="middle">
+                        <TABLE cellSpacing="0" cellPadding="0" width="570" align="center" border="0">
+                            <TBODY>
+                                <TR>
+                                    <TD><IMG runat="server" id="ImageHead" height="203" src="Skin/Image/Login_banner_emes.jpg" width="570"></TD>
+                                </TR>
+                                <TR>
+                                    <TD><IMG height="20" id="ImageCenter" runat="server" src="Skin/Image/Login_copyright_bg_text2.jpg" width="570"></TD>
+                                </TR>
+                                <TR>
+                                    <TD style="background-image:url(Skin/Image/Login_logo.jpg);vertical-align:top" class="bg" id="ImageLogoTD" runat="server">
+                                        <TABLE cellSpacing="0" cellPadding="0" style="width:100%" border="0">
+                                            <TBODY>
+                                                <TR>
+                                                    <TD width="310" height="100">&nbsp;</TD>
+                                                    <TD>
+                                                        <TABLE cellSpacing="5" cellPadding="0" style="width:260px" border="0">
+                                                            <TBODY>
+                                                                <TR>
+                                                                    <TD vAlign="bottom" align="right"><asp:label id="lblUserCode" runat="server">用户</asp:label></TD>
+                                                                    <TD vAlign="bottom" colspan="3">
+                                                                        <input type="text" id="txtUserCode" class="inputbox" maxlength="40" style="width:180px" tabindex="1" />
+                                                                    </TD>
+                                                                </TR>
+                                                                <TR>
+                                                                    <TD vAlign="bottom" align="right"><asp:label id="lblPassword" runat="server">密码</asp:label></TD>
+                                                                    <TD colspan="3">
+                                                                        <input type="password" id="txtPassword" class="inputbox" maxlength="40" style="width:180px" tabindex="2" />
+                                                                    </TD>
+                                                                </TR>
+                                                                <TR>
+                                                                    <TD vAlign="bottom" align="right"><asp:label id="lblLanguage" runat="server">语言</asp:label></TD>
+                                                                    <TD colspan="3">
+                                                                        <SELECT class="inputbox" id="drpLanguage" style="WIDTH: 180px" runat="server" NAME="drpLanguage"
+                                                                                tabindex="3">
+                                                                            <OPTION value="CHS" selected>简体中文</OPTION>
+                                                                            <OPTION value="CHT">繁體中文</OPTION>
+                                                                            <OPTION value="ENU">English</OPTION>
+                                                                        </SELECT>
+                                                                    </TD>
+                                                                </TR>
+                                                                <TR>
+                                                                    <TD vAlign="bottom" nowrap="nowrap" align="right"><asp:label id="lblDatabase" runat="server">数据库</asp:label></TD>
+                                                                    <TD colspan="3">
+                                                                        <SELECT class="inputbox" id="dprDatabase" style="WIDTH: 180px" runat="server" NAME="dprDatabase"
+                                                                                tabindex="4">
+                                                                            <OPTION value="MES" selected>生产</OPTION>
+                                                                            <OPTION value="HIS">历史</OPTION>
+                                                                        </SELECT>
+                                                                    </TD>
+                                                                </TR>
+                                                                <TR>
+                                                                    <TD><INPUT id="loguser" type="hidden" name="loguser" runat="server"><INPUT id="logintimes" type="hidden" value="0" name="logintimes" runat="server"></TD>
+                                                                    <TD colspan="3">
+                                                                        <input type="button" style="width:180px" value="登  录" class="bt" data-bind="click:Login" />
+                                                                    </TD>
+                                                                </TR>
+                                                                <tr>
+                                                                    <td></td>
+                                                                    <td colspan="3">
+                                                                        <asp:label id="lblMessage" runat="server" Width="180px" ForeColor="Red"></asp:label>
+                                                                    </td>
+                                                                </tr>
+                                                            </TBODY>
+                                                        </TABLE>
+                                                    </TD>
+                                                </TR>
+                                            </TBODY>
+                                        </TABLE>
+                                    </TD>
+                                </TR>
+                            </TBODY>
+                        </TABLE>
+                    </TD>
+                </TR>
+            </TBODY>
+        </TABLE>
+    </form>
+</body>
+</html>

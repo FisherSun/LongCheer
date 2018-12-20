@@ -4,13 +4,11 @@
         var f = function () {
             var self = this;
 
+            usercode: ko.observable();
+            password: ko.observable();
             this.Login = function () {
-                $.isLoading();
-
-                //setTimeout(function () { }, 3000);
-
-
-                $.isLoading('hide');
+                //app.showMessage('Hello ' + this.usercode() + '! Nice to meet you.', 'Greetings');
+                alert("111");
             }
         }
         return f;

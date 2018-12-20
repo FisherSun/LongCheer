@@ -33,9 +33,9 @@ namespace BenQuru.eMES.Web
 
         public void Configuration(IAppBuilder app)
         {
-            //configureFormAuth(app);
             ConfigureAuth(app);
             ConfigOData(app);
+            ConfigureDefaultPage(app);
         }
         void ConfigOData(IAppBuilder builder)
         {
@@ -111,8 +111,8 @@ namespace BenQuru.eMES.Web
             };
             options.StaticFileOptions.FileSystem = physicalFileSystem;
             options.StaticFileOptions.ServeUnknownFileTypes = true;
-            //options.DefaultFilesOptions.DefaultFileNames = new[] { "index.html" };
             options.DefaultFilesOptions.DefaultFileNames = new[] { "index.html" };
+            //options.DefaultFilesOptions.DefaultFileNames = new[] { "~/Scripts/app/login.html" };
             app.UseFileServer(options);
         }
     }
