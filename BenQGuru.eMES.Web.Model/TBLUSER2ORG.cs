@@ -16,7 +16,7 @@ namespace BenQGuru.eMES.Web.Model
     {
         public string USERCODE { get; set; }
         public int ORGID { get; set; }
-        public short DEFAULTORG { get; set; }
+        public int DEFAULTORG { get; set; }
         public string MUSER { get; set; }
         public int MDATE { get; set; }
         public int MTIME { get; set; }

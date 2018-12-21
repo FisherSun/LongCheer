@@ -3,8 +3,6 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28307.136
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LongCheer", "LongCheer\LongCheer.csproj", "{4E6B80F1-33C5-4722-9CF1-D205F84198D6}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BenQGuru.eMES.Web", "BenQuru.eMES.Web\BenQGuru.eMES.Web.csproj", "{C3CC5A9A-29F4-42F5-99EC-9D28C16B9D23}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BenQGuru.eMES.Web.EntityFramework", "BenQGuru.eMES.Web.EntityFramework\BenQGuru.eMES.Web.EntityFramework.csproj", "{19EBBCA2-3F4E-4A97-A417-FF9B7F2AF504}"
@@ -21,10 +19,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{4E6B80F1-33C5-4722-9CF1-D205F84198D6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{4E6B80F1-33C5-4722-9CF1-D205F84198D6}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{4E6B80F1-33C5-4722-9CF1-D205F84198D6}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{4E6B80F1-33C5-4722-9CF1-D205F84198D6}.Release|Any CPU.Build.0 = Release|Any CPU
 		{C3CC5A9A-29F4-42F5-99EC-9D28C16B9D23}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{C3CC5A9A-29F4-42F5-99EC-9D28C16B9D23}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C3CC5A9A-29F4-42F5-99EC-9D28C16B9D23}.Release|Any CPU.ActiveCfg = Release|Any CPU

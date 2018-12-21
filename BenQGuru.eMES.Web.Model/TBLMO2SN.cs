@@ -21,7 +21,7 @@ namespace BenQGuru.eMES.Web.Model
         public string CODE2 { get; set; }
         public string CODE3 { get; set; }
         public string PSN { get; set; }
-        public short STATUS { get; set; }
+        public int STATUS { get; set; }
         public string CUSER { get; set; }
         public Nullable<int> CDATE { get; set; }
         public Nullable<int> CTIME { get; set; }

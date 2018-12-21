@@ -23,7 +23,7 @@ namespace BenQGuru.eMES.Web.Model
         public int MDATE { get; set; }
         public int MTIME { get; set; }
         public string EATTRIBUTE1 { get; set; }
-        public short AVIALABLE { get; set; }
+        public int AVIALABLE { get; set; }
         public int ORGID { get; set; }
     }
 }

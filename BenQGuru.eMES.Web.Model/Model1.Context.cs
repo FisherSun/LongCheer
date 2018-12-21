@@ -18,6 +18,7 @@ namespace BenQGuru.eMES.Web.Model
         public LongCheerEntities()
             : base("name=LongCheerEntities")
         {
+            this.Configuration.LazyLoadingEnabled = false;
         }
     
         protected override void OnModelCreating(DbModelBuilder modelBuilder)

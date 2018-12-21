@@ -19,8 +19,9 @@ namespace BenQGuru.eMES.Web.EntityFramework
         public OracleDBContext()
             :base("name=LongCheerEntities")
         {
+            this.Configuration.LazyLoadingEnabled = false;
         }
 
-        public DbSet<TBLUSER> User { get; set; }
+        public virtual DbSet<TBLUSER> User { get; set; }
     }
 }

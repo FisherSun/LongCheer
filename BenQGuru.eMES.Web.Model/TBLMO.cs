@@ -53,7 +53,7 @@ namespace BenQGuru.eMES.Web.Model
         public Nullable<int> MOIMPORTDATE { get; set; }
         public Nullable<int> MOIMPORTTIME { get; set; }
         public Nullable<decimal> OFFMOQTY { get; set; }
-        public Nullable<short> ISCOMPARESOFT { get; set; }
+        public Nullable<int> ISCOMPARESOFT { get; set; }
         public string RMABILLCODE { get; set; }
         public Nullable<int> MOSEQ { get; set; }
         public string REMOCODE { get; set; }

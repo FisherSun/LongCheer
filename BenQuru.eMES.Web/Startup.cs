@@ -70,7 +70,7 @@ namespace BenQuru.eMES.Web
             //builder.UseWebApi(config);
         }
 
-        void configureFormAuth(IAppBuilder app)
+        void ConfigureFormAuth(IAppBuilder app)
         {
             // Enable the application to use a cookie to store information for the signed in user
             app.UseCookieAuthentication(new CookieAuthenticationOptions
@@ -112,7 +112,6 @@ namespace BenQuru.eMES.Web
             options.StaticFileOptions.FileSystem = physicalFileSystem;
             options.StaticFileOptions.ServeUnknownFileTypes = true;
             options.DefaultFilesOptions.DefaultFileNames = new[] { "index.html" };
-            //options.DefaultFilesOptions.DefaultFileNames = new[] { "~/Scripts/app/login.html" };
             app.UseFileServer(options);
         }
     }
