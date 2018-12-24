@@ -46,6 +46,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="BenQGuru.eMES.Web.CommonFactory">
+      <HintPath>..\BenQGuru.eMES.Web.CommonFactory\bin\Debug\BenQGuru.eMES.Web.CommonFactory.dll</HintPath>
+    </Reference>
     <Reference Include="BenQGuru.eMES.Web.EntityFramework">
       <HintPath>..\BenQGuru.eMES.Web.EntityFramework\bin\Debug\BenQGuru.eMES.Web.EntityFramework.dll</HintPath>
     </Reference>
@@ -526,6 +529,8 @@
     <Content Include="Scripts\app\main.js" />
     <Content Include="Scripts\app\shell.html" />
     <Content Include="Scripts\app\shell.js" />
+    <Content Include="Scripts\app\testlist.html" />
+    <Content Include="Scripts\app\testlist.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\Config\services.js" />
@@ -925,6 +930,18 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Models\" />
+    <Folder Include="Scripts\app\alert\" />
+    <Folder Include="Scripts\app\basesetting\" />
+    <Folder Include="Scripts\app\iqc\" />
+    <Folder Include="Scripts\app\momodel\" />
+    <Folder Include="Scripts\app\oqc\" />
+    <Folder Include="Scripts\app\reportcenter\" />
+    <Folder Include="Scripts\app\rework\" />
+    <Folder Include="Scripts\app\selectquery\" />
+    <Folder Include="Scripts\app\smt\" />
+    <Folder Include="Scripts\app\tsmodel\" />
+    <Folder Include="Scripts\app\warehouse\" />
+    <Folder Include="Scripts\app\webquery\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

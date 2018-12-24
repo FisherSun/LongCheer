@@ -1414,6 +1414,7 @@
     <Compile Include="TMP_TBLONOFFDUTYMID.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="User.cs" />
     <Compile Include="ZERPCUSTOMER.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>

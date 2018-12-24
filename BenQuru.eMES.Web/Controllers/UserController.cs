@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 
 using BenQGuru.eMES.Web.EntityFramework;
 using BenQGuru.eMES.Web.Model;
+using BenQGuru.eMES.Web.CommonFactory;
 
 namespace BenQuru.eMES.Web.Controllers
 {
@@ -30,8 +31,10 @@ namespace BenQuru.eMES.Web.Controllers
         //public IHttpActionResult CheckUserLogin(string usercode,string password)
         public string CheckUserLogin(string usercode, string password)
         {
-            TBLUSER user = DbContext.User.Where(x => x.USERCODE == usercode).FirstOrDefault();
-            if (user == null)
+            //TBLUSER user = DbContext.User.Where(x => x.USERCODE == usercode).FirstOrDefault();
+            DapperFactory dapper = new DapperFactory();
+            var result = dapper.CheckLogin(usercode);
+            if (result <= 0)
             {
                 //return BadRequest("用户名不存在！");
                 return "用户名不存在！";
