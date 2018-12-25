@@ -43,7 +43,7 @@ namespace BenQGuru.eMES.Web.Model
         public string RMABILLCODE { get; set; }
         public Nullable<int> MOSEQ { get; set; }
         public Nullable<decimal> SERIAL { get; set; }
-        public int PROCESSED { get; set; }
+        public short PROCESSED { get; set; }
         public string COLLECTSTATUS { get; set; }
         public int BEGINDATE { get; set; }
         public int BEGINTIME { get; set; }

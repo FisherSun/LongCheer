@@ -63,8 +63,8 @@ namespace BenQGuru.eMES.Web.Model
         public string EATTRIBUTE1 { get; set; }
         public string TSRESCODE { get; set; }
         public string SCRAPCAUSE { get; set; }
-        public Nullable<int> FRMMONTH { get; set; }
-        public Nullable<int> FRMWEEK { get; set; }
+        public Nullable<short> FRMMONTH { get; set; }
+        public Nullable<short> FRMWEEK { get; set; }
         public string RMABILLCODE { get; set; }
         public string FRMOUTROUTECODE { get; set; }
         public Nullable<int> MOSEQ { get; set; }

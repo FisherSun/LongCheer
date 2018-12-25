@@ -8318,6 +8318,16 @@
           <Property Name="MTIME" Type="number" Precision="6" Scale="0" Nullable="false" />
           <Property Name="EATTRIBUTE1" Type="varchar2" MaxLength="40" />
         </EntityType>
+        <EntityType Name="TBLTEST">
+          <Key>
+            <PropertyRef Name="USERCODE" />
+          </Key>
+          <Property Name="LANGUAGEA" Type="varchar2" MaxLength="50" />
+          <Property Name="LANGUAGEB" Type="varchar2" MaxLength="50" />
+          <Property Name="LANGUAGEC" Type="varchar2" MaxLength="50" />
+          <Property Name="LANGUAGED" Type="varchar2" MaxLength="50" />
+          <Property Name="USERCODE" Type="varchar2" MaxLength="50" Nullable="false" />
+        </EntityType>
         <EntityType Name="TBLTESTDATA">
           <Key>
             <PropertyRef Name="SERIAL" />
@@ -9749,6 +9759,7 @@
           <EntitySet Name="TBLSYSPARAMGROUP" EntityType="Self.TBLSYSPARAMGROUP" Schema="LONGCHEERMES_QA" store:Type="Tables" />
           <EntitySet Name="TBLTEMPREWORKLOTNO" EntityType="Self.TBLTEMPREWORKLOTNO" Schema="LONGCHEERMES_QA" store:Type="Tables" />
           <EntitySet Name="TBLTEMPREWORKRCARD" EntityType="Self.TBLTEMPREWORKRCARD" Schema="LONGCHEERMES_QA" store:Type="Tables" />
+          <EntitySet Name="TBLTEST" EntityType="Self.TBLTEST" Schema="LONGCHEERMES_QA" store:Type="Tables" />
           <EntitySet Name="TBLTESTDATA" EntityType="Self.TBLTESTDATA" Schema="LONGCHEERMES_QA" store:Type="Tables" />
           <EntitySet Name="TBLTIMEDIMENSION" EntityType="Self.TBLTIMEDIMENSION" Schema="LONGCHEERMES_QA" store:Type="Tables" />
           <EntitySet Name="TBLTP" EntityType="Self.TBLTP" Schema="LONGCHEERMES_QA" store:Type="Tables" />
@@ -20097,7 +20108,18 @@ FROM "LONGCHEERMES_QA"."ZERPVENDOR" "ZERPVENDOR"</DefiningQuery>
             <End Role="TBLSPCOBJECT" EntitySet="TBLSPCOBJECT" />
             <End Role="TBLSPCITEMSPEC" EntitySet="TBLSPCITEMSPEC" />
           </AssociationSet>
+          <EntitySet Name="TBLTEST" EntityType="Model.TBLTEST" />
         </EntityContainer>
+        <EntityType Name="TBLTEST">
+          <Key>
+            <PropertyRef Name="USERCODE" />
+          </Key>
+          <Property Name="LANGUAGEA" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="LANGUAGEB" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="LANGUAGEC" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="LANGUAGED" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="USERCODE" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -28979,6 +29001,17 @@ FROM "LONGCHEERMES_QA"."ZERPVENDOR" "ZERPVENDOR"</DefiningQuery>
                 <ScalarProperty Name="VENDORCODE" ColumnName="VENDORCODE" />
                 <ScalarProperty Name="VENDORNAME" ColumnName="VENDORNAME" />
                 <ScalarProperty Name="FLAG" ColumnName="FLAG" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TBLTEST">
+            <EntityTypeMapping TypeName="Model.TBLTEST">
+              <MappingFragment StoreEntitySet="TBLTEST">
+                <ScalarProperty Name="USERCODE" ColumnName="USERCODE" />
+                <ScalarProperty Name="LANGUAGED" ColumnName="LANGUAGED" />
+                <ScalarProperty Name="LANGUAGEC" ColumnName="LANGUAGEC" />
+                <ScalarProperty Name="LANGUAGEB" ColumnName="LANGUAGEB" />
+                <ScalarProperty Name="LANGUAGEA" ColumnName="LANGUAGEA" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

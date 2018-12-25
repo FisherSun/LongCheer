@@ -486,5 +486,6 @@ namespace BenQGuru.eMES.Web.Model
         public DbSet<ZERPMODEL> ZERPMODEL { get; set; }
         public DbSet<ZERPMODEL2ITEM> ZERPMODEL2ITEM { get; set; }
         public DbSet<ZERPVENDOR> ZERPVENDOR { get; set; }
+        public DbSet<TBLTEST> TBLTEST { get; set; }
     }
 }

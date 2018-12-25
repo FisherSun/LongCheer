@@ -12,13 +12,24 @@ namespace BenQGuru.eMES.Web.CommonFactory
     public class DapperFactory
     {
         private readonly string connectionString = System.Configuration.ConfigurationManager.AppSettings["ConnectionString"].ToString();
-        public DapperFactory() { }
+        private OracleConnection connection = null;
+        public DapperFactory() {
+            this.connection = new OracleConnection(connectionString);
+        }
 
         public OracleConnection CreateOracleConnection()
         {
-            var connection = new OracleConnection(connectionString);
+            //var connection = new OracleConnection(connectionString);
             connection.Open();
             return connection;
+        }
+
+        public void CloseOracleConnection()
+        {
+            if (connection.State == System.Data.ConnectionState.Open)
+            {
+                connection.Close();
+            }
         }
         public int CheckLogin(string usercode)
         {

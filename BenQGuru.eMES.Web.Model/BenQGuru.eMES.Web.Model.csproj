@@ -1279,6 +1279,9 @@
     <Compile Include="TBLTEMPREWORKRCARD.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="TBLTEST.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
     <Compile Include="TBLTESTDATA.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>

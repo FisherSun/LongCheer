@@ -12,18 +12,12 @@ namespace BenQGuru.eMES.Web.Model
     using System;
     using System.Collections.Generic;
     
-    public partial class TBLOPBOM
+    public partial class TBLTEST
     {
-        public string ITEMCODE { get; set; }
-        public string OBCODE { get; set; }
-        public string OPBOMVER { get; set; }
-        public string OBROUTE { get; set; }
-        public string OPDESC { get; set; }
-        public string MUSER { get; set; }
-        public int MDATE { get; set; }
-        public int MTIME { get; set; }
-        public string EATTRIBUTE1 { get; set; }
-        public short AVIALABLE { get; set; }
-        public int ORGID { get; set; }
+        public string LANGUAGEA { get; set; }
+        public string LANGUAGEB { get; set; }
+        public string LANGUAGEC { get; set; }
+        public string LANGUAGED { get; set; }
+        public string USERCODE { get; set; }
     }
 }

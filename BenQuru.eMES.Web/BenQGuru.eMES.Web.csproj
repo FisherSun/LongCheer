@@ -46,11 +46,20 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="BenQGuru.eMES.Web.Common">
+      <HintPath>..\BenQGuru.eMES.Web.Common\bin\Debug\BenQGuru.eMES.Web.Common.dll</HintPath>
+    </Reference>
     <Reference Include="BenQGuru.eMES.Web.CommonFactory">
       <HintPath>..\BenQGuru.eMES.Web.CommonFactory\bin\Debug\BenQGuru.eMES.Web.CommonFactory.dll</HintPath>
     </Reference>
+    <Reference Include="BenQGuru.eMES.Web.DAL">
+      <HintPath>..\BenQGuru.eMES.Web.DAL\bin\Debug\BenQGuru.eMES.Web.DAL.dll</HintPath>
+    </Reference>
     <Reference Include="BenQGuru.eMES.Web.EntityFramework">
       <HintPath>..\BenQGuru.eMES.Web.EntityFramework\bin\Debug\BenQGuru.eMES.Web.EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="BenQGuru.eMES.Web.Libs">
+      <HintPath>..\BenQGuru.eMES.Web.Libs\bin\Debug\BenQGuru.eMES.Web.Libs.dll</HintPath>
     </Reference>
     <Reference Include="BenQGuru.eMES.Web.Model, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -211,6 +220,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\TestController.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Controllers\WebApiBaseController.cs" />
     <Compile Include="Global.asax.cs">

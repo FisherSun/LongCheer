@@ -23,7 +23,7 @@ namespace BenQGuru.eMES.Web.Model
         public string MATERIAL_CLASS_CODE { get; set; }
         public string BARCODE { get; set; }
         public string PRINTED_DESC { get; set; }
-        public int MATERIAL_QTY { get; set; }
+        public short MATERIAL_QTY { get; set; }
         public string PRODUCT_DATE { get; set; }
         public string SCAN_DATE { get; set; }
         public string LUCKY_NO { get; set; }

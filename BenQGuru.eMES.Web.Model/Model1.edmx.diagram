@@ -478,6 +478,7 @@
         <AssociationConnector Association="Model.SYS_C009500" ManuallyRouted="false" />
         <AssociationConnector Association="Model.FK_USERS_APPID" ManuallyRouted="false" />
         <AssociationConnector Association="Model.REF_TBLSPCITEMSPEC_01" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="Model.TBLTEST" Width="1.5" PointX="45.375" PointY="70.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
