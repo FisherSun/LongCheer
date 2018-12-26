@@ -2,28 +2,28 @@
     <div class="panel-heading row">
         <div class="col-md-1" style="cursor:pointer" data-bind="click:Search">
             <img src="../../Content/images/Icon-Search.png" />
-            <span data-bind="text:'查询'"></span>
+            <span data-bind="text:rm.button.buttonQuery"></span>
         </div>
         <div class="col-md-1" style="cursor:pointer" data-bind="click:New">
             <img src="../../Content/images/Add.png">
-            <span data-bind="text:'新建'"></span>
+            <span data-bind="text:rm.button.buttonCreate"></span>
         </div>
         <div class="col-md-1" data-bind="click:Edit.bind($data, selectedItem()[0])">
             <span data-bind="attr:{class:selectedItem().length>0?'btnAbled':'btnDisable'}">
                 <img src="../../Content/images/input.png">
-                <span data-bind="text:'修改'"></span>
+                <span data-bind="text:rm.button.buttonEdit"></span>
             </span>
         </div>
         <div class="col-md-1" data-bind="click:Del">
             <span data-bind="attr:{class:selectedItem().length>0?'btnAbled':'btnDisable'}">
                 <img src="../../Content/images/delete.gif.png">
-                <span data-bind="text:'删除'"></span>
+                <span data-bind="text:rm.button.buttonDelete"></span>
             </span>
         </div>
-        <div class="col-md-1" style="cursor:pointer" data-bind="click:Export">
+        <div class="col-md-1" style="cursor:pointer;display:none;" data-bind="click:Export">
             <span>
                 <img src="../../Content/images/icon_export.png">
-                <span data-bind="text:'导出'"></span>
+                <span data-bind="text:rm.button.buttonExport"></span>
             </span>
         </div>
     </div>
@@ -34,12 +34,12 @@
                 <input type="text" class="form-control" data-bind="value:UserCode">
             </div>
         </div>
-        <div class="form-group col-md-4">
+        <!--<div class="form-group col-md-4">
             <label data-bind="text:'编程语言：'" class="col-md-4"></label>
             <div class="col-md-8">
                 <input type="text" class="form-control" data-bind="value:Language">
             </div>
-        </div>
+        </div>-->
     </div>
     <div class="panel-body form-inline" data-bind="with:bodylist">
         <table class="table table-bordered table-striped table-responsive table-hover">
@@ -83,11 +83,11 @@
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                 <h4 class="modal-title" data-bind="text:'最喜爱的编程语言调查'"></h4>
             </div>
-            <div class="modal-body form-horizontal panel-body" data-bind="with:objectValue">
+            <div class="modal-body form-horizontal panel-body" data-bind="with:objectEditValue">
                 <div class="form-group">
                     <label class="col-md-2" data-bind="text:'用户：'"></label>
                     <div class="col-md-8">
-                        <input type="text" class="form-control" data-bind="value:UserCodeEdit">
+                        <input type="text" class="form-control" data-bind="value:UserCode,enable:$root.keyValue()=='new'" >
                     </div>
                 </div>
                 <div class="form-group">

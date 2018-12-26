@@ -26,13 +26,47 @@ namespace BenQuru.eMES.Web.Controllers
         }
 
         /// <summary>
-        /// 修改
+        /// 添加
         /// </summary>
         /// <param name="entity"></param>
         /// <returns></returns>
         public IHttpActionResult Put([FromBody]TBLTEST entity)
         {
-            return Ok();
+            bool result = dal.AddLanguage(entity);
+            if (result)
+                return Ok("添加成功！");
+            else
+              return BadRequest("添加失败！");
+            
         }
+
+        /// <summary>
+        /// 修改
+        /// </summary>
+        /// <param name="entity"></param>
+        /// <returns></returns>
+        public IHttpActionResult Post([FromBody]TBLTEST entity)
+        {
+            bool result = dal.EditLanguage(entity);
+            if (result)
+                return Ok("修改成功！");
+            else
+                return BadRequest("修改失败！");
+        }
+
+        /// <summary>
+        /// 删除
+        /// </summary>
+        /// <param name="UserCode"></param>
+        /// <returns></returns>
+        public IHttpActionResult Delete(string UserCode)
+        {
+            bool result = dal.DeleteLanguage(UserCode);
+            if (result)
+                return Ok("修改成功！");
+            else
+                return BadRequest("修改失败！");
+        }
+
     }
 }

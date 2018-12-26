@@ -4,7 +4,7 @@
         var f = function () {
             var self = this;
             this.rm = rm.global;
-            var keyValue = "new";
+            this.keyValue = ko.observable("new");
             this.selectedItem = ko.observableArray();
             this.selectAll = ko.observable();
             this.selectAll.subscribe(function (newValue) {
@@ -23,7 +23,7 @@
             }
 
             this.objectEditValue = {
-                UserCodeEdit: ko.observable(),
+                UserCode: ko.observable(),
                 LanguageA: ko.observable(),
                 LanguageB: ko.observable(),
                 LanguageC: ko.observable(),
@@ -35,8 +35,8 @@
                 self.bodylist.Condition = [];
                 if (self.objectValue.UserCode())
                     self.bodylist.Condition.push("UserCode=" + self.objectValue.UserCode());
-                if (self.objectValue.Language())
-                    self.bodylist.Condition.push("Language=" + self.objectValue.Language());
+                //if (self.objectValue.Language())
+                //    self.bodylist.Condition.push("Language=" + self.objectValue.Language());
                 self.bodylist.Search();
             };
 
@@ -55,12 +55,21 @@
 
             //添加
             this.New = function () {
-                //router.navigate('#nevMgt/NevSubsidyApply/new');
+                self.keyValue("new");
+                self.ClearText();
                 $("#myModal").modal("show");
             };
 
+            this.ClearText = function () {
+                self.objectEditValue.UserCode("");
+                self.objectEditValue.LanguageA("");
+                self.objectEditValue.LanguageB("");
+                self.objectEditValue.LanguageC("");
+                self.objectEditValue.LanguageD("");
+            }
+
             this.Save = function () {
-                if (!self.objectEditValue.UserCodeEdit()) {
+                if (!self.objectEditValue.UserCode()) {
                     app.showMessage("请输入用户名", self.rm.message.alertTitle());
                     return;
                 }
@@ -70,13 +79,30 @@
                 }
                 $.isLoading();
                 var d = JSON.stringify(ko.toJS(self.objectEditValue));
-                if (self.keyValue == 'new') {
+                if (self.keyValue() == 'new') {
                     utility.httpPut('/api/Test', d).done(function (data) {
-                        //router.navigateBack();
+                        app.showMessage(data, self.rm.message.alertTitle());
                         $("#myModal").modal("hide");
+                        self.ClearText();
+                        self.Search();
                     }).fail(function (data) {
-                        var message = JSON.parse(data.responseText).Message;
-                        app.showMessage(message, self.rm.message.alertTitle());
+                        //var message = JSON.parse(data.responseText).Message;
+                        //app.showMessage(message, self.rm.message.alertTitle());
+                        app.showMessage(data.responseText, self.rm.message.alertTitle());
+                    }).always(function (data) {
+                        $.isLoading('hide');
+                    });
+                } else {
+                    utility.httpPost('/api/Test', d).done(function (data) {
+                        app.showMessage(data, self.rm.message.alertTitle());
+                        $("#myModal").modal("hide");
+                        self.ClearText();
+                        self.selectedItem.removeAll();
+                        self.Search();
+                    }).fail(function (data) {
+                        //var message = JSON.parse(data.responseText).Message;
+                        //app.showMessage(message, self.rm.message.alertTitle());
+                        app.showMessage(data.responseText, self.rm.message.alertTitle());
                     }).always(function (data) {
                         $.isLoading('hide');
                     });
@@ -85,7 +111,7 @@
 
             //删除
             this.Del = function (item) {
-                if (!self.selectedItem() || self.selectedItem().length != 1) {//只能选择一条
+                if (!self.selectedItem() || self.selectedItem().length != 1) {
                     app.showMessage(self.rm.message.PleaseChooseOneItem(), self.rm.message.alertTitle());
                     return;
                 }
@@ -93,8 +119,10 @@
                     { text: self.rm.button.buttonConfirm(), value: "Yes" }, { text: self.rm.button.buttonCancel(), value: "No" }]).then(function (r) {
                         if (r === 'Yes') {
                             $.isLoading();
-                            utility.httpDelete('api/NevSubsidyApplies/Delete/?id=' + self.selectedItem()[0]['Id']())
+                            utility.httpDelete('api/Test/Delete/?UserCode=' + self.selectedItem()[0]['USERCODE']())
                                 .done(function (data) {
+                                    app.showMessage("删除成功！", self.rm.message.alertTitle());
+                                    self.selectedItem.removeAll();
                                     self.Search();
                                 }).fail(function (data) {
                                     var message = JSON.parse(data.responseText).Message;
@@ -106,9 +134,19 @@
                     });
             };
             //修改
-            this.Edit = function (item, isReadOnly) {
+            this.Edit = function (item) {
+                if (!self.selectedItem() || self.selectedItem().length != 1) {//只能选择一条
+                    app.showMessage(self.rm.message.PleaseChooseOneItem(), self.rm.message.alertTitle());
+                    return;
+                }
                 if (item) {
-                    router.navigate('#nevMgt/NevSubsidyApply/' + item['Id']() + "?IsReadOnly=" + isReadOnly);
+                    self.objectEditValue.UserCode(item['USERCODE']());
+                    self.objectEditValue.LanguageA(item['LANGUAGEA']());
+                    self.objectEditValue.LanguageB(item['LANGUAGEB']());
+                    self.objectEditValue.LanguageC(item['LANGUAGEC']());
+                    self.objectEditValue.LanguageD(item['LANGUAGED']());
+                    $("#myModal").modal("show");
+                    self.keyValue("Edit");
                 }
             };
 

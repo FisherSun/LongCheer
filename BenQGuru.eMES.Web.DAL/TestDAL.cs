@@ -19,7 +19,12 @@ namespace BenQGuru.eMES.Web.DAL
     public class TestDAL
     {
         //DapperFactory factory = new DapperFactory();
-
+        private string connectionString = System.Configuration.ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
+        /// <summary>
+        /// 分页查询
+        /// </summary>
+        /// <param name="search">查询条件</param>
+        /// <returns></returns>
         public PagedResult<TBLTEST> GetListByPage(TestSearch search)
         {
             string where = " WHERE 1=1";
@@ -28,42 +33,106 @@ namespace BenQGuru.eMES.Web.DAL
             {
                 where += " AND UserCode=:UserCode";
             }
-            if (!string.IsNullOrWhiteSpace(search.LanguageA))
-            {
-                where += " AND (LanguageA=:Language or LanguageB=:Language or LanguageC=:Language or LanguageD=:Language)";
-            }
-            //if (!string.IsNullOrWhiteSpace(search.UserCode))
+            //if (!string.IsNullOrWhiteSpace(search.Language))
             //{
-            //    where += " AND UserCode=@UserCode";
+            //    where += " AND LanguageA=:Language or LanguageB=:Language or LanguageC=:Language or LanguageD=:Language";
             //}
-            //if (!string.IsNullOrWhiteSpace(search.LanguageA))
-            //{
-            //    where += " AND (LanguageA=@Language or LanguageB=@Language or LanguageC=@Language or LanguageD=@Language)";
-            //}
-            //string sqlCount = @"SELECT COUNT(1) FROM tblTest" + where;
-            //string sqlData = @"SELECT * FROM tblTest" + where;
-            var sql = @"BEGIN OPEN :rslt1 FOR SELECT COUNT(1) FROM tblTest;" +
-                        "OPEN :rslt2 FOR SELECT * FROM tblTest;"+
+            var sql = @"BEGIN OPEN :rslt1 FOR SELECT COUNT(1) FROM tblTest" + where + ";" +
+                        "OPEN :rslt2 FOR SELECT * FROM tblTest" + where + ";" +
                       " END;";
             OracleDynamicParameters dynParams = new OracleDynamicParameters();
             dynParams.Add(":rslt1", OracleDbType.RefCursor, ParameterDirection.Output);
             dynParams.Add(":rslt2", OracleDbType.RefCursor, ParameterDirection.Output);
-            //if (search.Count > 0)
-            //{
-            //    sqlData += " OFFSET @Skip ROWS FETCH NEXT @Count ROWS ONLY";
-            //}
-            //string sql = sqlCount + ";" + sqlData;
-            //using (DbAccess db = new DbAccess())
-            using (IDbConnection dbConn = new OracleConnection(System.Configuration.ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString))
+            dynParams.Add(":UserCode", OracleDbType.Varchar2, ParameterDirection.Input, search.UserCode);
+            //dynParams.Add(":Language", OracleDbType.Varchar2, ParameterDirection.Input, search.Language);
+            using (IDbConnection dbConn = new OracleConnection(connectionString))
             {
                 var queryResult = dbConn.QueryMultiple(sql, param: dynParams);
-                //var queryResult = db.Connection.QueryMultiple(sql, param: dynParams);
-                // var queryResult = db.Connection.QueryMultiple(sql, search);
                 return new PagedResult<TBLTEST>
                 {
                     Total = queryResult.Read<int>().Single(),
                     Rows = queryResult.Read<TBLTEST>().Skip<TBLTEST>(search.Skip).Take<TBLTEST>(search.Count).ToList()
                 };
+            }
+        }
+
+        /// <summary>
+        /// 添加
+        /// </summary>
+        /// <param name="entity"></param>
+        /// <returns></returns>
+        public bool AddLanguage(TBLTEST entity)
+        {
+            string sql = "INSERT INTO tblTest(UserCode,LanguageA,LanguageB,LanguageC,LanguageD) VALUES(:UserCode,:LanguageA,:LanguageB,:LanguageC,:LanguageD)";
+            OracleDynamicParameters dynParams = new OracleDynamicParameters();
+            dynParams.Add(":UserCode", OracleDbType.Varchar2,ParameterDirection.Input,entity.USERCODE);
+            dynParams.Add(":LanguageA", OracleDbType.Varchar2, ParameterDirection.Input,entity.LANGUAGEA);
+            dynParams.Add(":LanguageB", OracleDbType.Varchar2, ParameterDirection.Input, entity.LANGUAGEB);
+            dynParams.Add(":LanguageC", OracleDbType.Varchar2, ParameterDirection.Input, entity.LANGUAGEC);
+            dynParams.Add(":LanguageD", OracleDbType.Varchar2, ParameterDirection.Input, entity.LANGUAGED);
+            using (IDbConnection dbConn = new OracleConnection(connectionString))
+            {
+                try
+                {
+                    dbConn.Execute(sql, param: dynParams);
+                    return true;
+                }
+                catch (Exception ex)
+                {
+                    return false;
+                }
+            }
+        }
+
+        /// <summary>
+        /// 修改
+        /// </summary>
+        /// <param name="entity"></param>
+        /// <returns></returns>
+        public bool EditLanguage(TBLTEST entity)
+        {
+            string sql = "UPDATE tblTest SET LanguageA=:LanguageA,LanguageB=:LanguageB,LanguageC=:LanguageC,LanguageD=:LanguageD WHERE UserCode=:UserCode";
+            OracleDynamicParameters dynParams = new OracleDynamicParameters();
+            dynParams.Add(":UserCode", OracleDbType.Varchar2, ParameterDirection.Input, entity.USERCODE);
+            dynParams.Add(":LanguageA", OracleDbType.Varchar2, ParameterDirection.Input, entity.LANGUAGEA);
+            dynParams.Add(":LanguageB", OracleDbType.Varchar2, ParameterDirection.Input, entity.LANGUAGEB);
+            dynParams.Add(":LanguageC", OracleDbType.Varchar2, ParameterDirection.Input, entity.LANGUAGEC);
+            dynParams.Add(":LanguageD", OracleDbType.Varchar2, ParameterDirection.Input, entity.LANGUAGED);
+            using (IDbConnection dbConn = new OracleConnection(connectionString))
+            {
+                try
+                {
+                    dbConn.Execute(sql, param: dynParams);
+                    return true;
+                }
+                catch (Exception ex)
+                {
+                    return false;
+                }
+            }
+        }
+
+        /// <summary>
+        /// 删除
+        /// </summary>
+        /// <param name="entity"></param>
+        /// <returns></returns>
+        public bool DeleteLanguage(string UserCode)
+        {
+            string sql = "DELETE tblTest WHERE UserCode=:UserCode";
+            OracleDynamicParameters dynParams = new OracleDynamicParameters();
+            dynParams.Add(":UserCode", OracleDbType.Varchar2, ParameterDirection.Input, UserCode);
+            using (IDbConnection dbConn = new OracleConnection(connectionString))
+            {
+                try
+                {
+                    dbConn.Execute(sql, param: dynParams);
+                    return true;
+                }
+                catch (Exception ex)
+                {
+                    return false;
+                }
             }
         }
     }

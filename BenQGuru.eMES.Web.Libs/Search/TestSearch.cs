@@ -11,6 +11,6 @@ namespace BenQGuru.eMES.Web.Libs.Search
     public class TestSearch:ExportCondition
     {
         public string UserCode { get; set; }
-        public string LanguageA { get; set; }
+        public string Language { get; set; }
     }
 }
