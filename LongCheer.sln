@@ -19,6 +19,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BenQGuru.eMES.Web.Common", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BenQGuru.eMES.Web.Libs", "BenQGuru.eMES.Web.Libs\BenQGuru.eMES.Web.Libs.csproj", "{4B4912ED-5B9B-438C-9035-A425A35E3966}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BenQuru.eMES.Web.OwinSelfHost", "BenQuru.eMES.Web.OwinSelfHost\BenQuru.eMES.Web.OwinSelfHost.csproj", "{492EF6AD-F139-466D-B676-24D7434EC108}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -57,6 +59,10 @@ Global
 		{4B4912ED-5B9B-438C-9035-A425A35E3966}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4B4912ED-5B9B-438C-9035-A425A35E3966}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4B4912ED-5B9B-438C-9035-A425A35E3966}.Release|Any CPU.Build.0 = Release|Any CPU
+		{492EF6AD-F139-466D-B676-24D7434EC108}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{492EF6AD-F139-466D-B676-24D7434EC108}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{492EF6AD-F139-466D-B676-24D7434EC108}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{492EF6AD-F139-466D-B676-24D7434EC108}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

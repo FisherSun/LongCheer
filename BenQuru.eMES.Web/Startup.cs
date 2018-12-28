@@ -10,12 +10,10 @@ using System;
 using System.Web;
 using System.Web.Http;
 using System.Web.Http.Batch;
-//using System.Web.OData.Extensions;
-//using Geely.CEP.Web.Common;
-//using Geely.CEP.Web.Models;
-//using Geely.CEP.DynamicOData;
-//using Geely.CEP.DynamicOData.Sql;
 using Microsoft.Owin.Security.OAuth;
+using System.Net.Http;
+using Microsoft.Owin.Hosting;
+using System.Net.Http.Formatting;
 
 [assembly: OwinStartup(typeof(BenQuru.eMES.Web.Startup))]
 namespace BenQuru.eMES.Web
@@ -36,6 +34,20 @@ namespace BenQuru.eMES.Web
             ConfigureAuth(app);
             ConfigOData(app);
             ConfigureDefaultPage(app);
+
+            //HttpConfiguration config = new HttpConfiguration();
+            //config.Routes.MapHttpRoute(
+            //    name: "DefaultApi",
+            //    routeTemplate: "api/{controller}/{id}",
+            //    defaults: new { id = RouteParameter.Optional }
+            //);
+
+            ////将默认xml返回数据格式改为json
+            //config.Formatters.XmlFormatter.SupportedMediaTypes.Clear();
+            //config.Formatters.JsonFormatter.MediaTypeMappings.Add(new QueryStringMapping("datatype", "json", "application/json"));
+            //app.UseWebApi(config);
+
+
         }
         void ConfigOData(IAppBuilder builder)
         {

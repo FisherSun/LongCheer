@@ -38,7 +38,7 @@
                 //if (self.objectValue.Language())
                 //    self.bodylist.Condition.push("Language=" + self.objectValue.Language());
                 self.bodylist.Search();
-            };
+             };
 
             this.tableSettings = {
                 Columns: [
