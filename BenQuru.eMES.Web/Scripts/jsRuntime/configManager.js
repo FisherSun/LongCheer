@@ -1,7 +1,5 @@
 ﻿define(['config/services', 'config/client', 'datetimepicker'],
     function (services, client, datepicker, calendar) {
-//define(['config/client', 'datetimepicker'],
-//    function (client, datepicker, calendar) {
         var cm = {};
         client.showInCRM = true;
         cm.client = client;

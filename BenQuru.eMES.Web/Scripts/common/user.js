@@ -913,6 +913,7 @@
                 { route: 'spmMgt/PartNew/PartDetail/:id', title: '备件主数据详情', moduleId: 'app/spmMgt/PartNew/PartDetail' },
             ]);
         };
+        
         var _BuildNav = function (args) {
             var rtv = [];
             var rtvDic = {};

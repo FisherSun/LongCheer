@@ -73,8 +73,8 @@ define(['require', 'durandal/system', 'durandal/viewLocator', 'durandal/app',
 
                 //dic.getAllEnum();
                 //app.setRoot('app/shell');
-                //app.setRoot('app/login');
-                app.setRoot('app/testlist');
+                app.setRoot('app/login');
+                //app.setRoot('app/testlist');
             });
         }
         var appError = function () {

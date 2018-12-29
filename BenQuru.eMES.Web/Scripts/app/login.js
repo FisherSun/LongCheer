@@ -22,7 +22,9 @@
                 $.isLoading();
                 utility.httpGet('api/User/CheckUserLogin?usercode=' + self.objectValue.usercode() + '&password=' + self.objectValue.password()).done(function (data) {
                     //app.showMessage(data.message, self.rm.message.alertTitle());
-                    app.showMessage(data, self.rm.message.alertTitle());
+                    //app.showMessage(data, self.rm.message.alertTitle());
+                    //app.setRoot('app/shell');
+                    app.setRoot('app/demo');
                 }).fail(function (data) {
                     app.showMessage(data.message, self.rm.message.alertTitle());
                 }).always(function () {

@@ -33,27 +33,27 @@ namespace BenQuru.eMES.Web
 
         public void Configuration(IAppBuilder app)
         {
-            //ConfigureAuth(app);
-            //ConfigOData(app);
-            //ConfigureDefaultPage(app);
+            ConfigureAuth(app);
+            ConfigOData(app);
+            ConfigureDefaultPage(app);
 
-            HttpConfiguration config = new HttpConfiguration();
-            config.Routes.MapHttpRoute(
-                name: "CustomApi",
-                routeTemplate: "api/{controller}/{action}/{id}",
-                defaults: new { id = RouteParameter.Optional }
-            );
-            config.Routes.MapHttpRoute(
-                name: "DefaultApi",
-                routeTemplate: "api/{controller}/{id}",
-                defaults: new { id = RouteParameter.Optional }
-            );
+            //HttpConfiguration config = new HttpConfiguration();
+            //config.Routes.MapHttpRoute(
+            //    name: "CustomApi",
+            //    routeTemplate: "api/{controller}/{action}/{id}",
+            //    defaults: new { id = RouteParameter.Optional }
+            //);
+            //config.Routes.MapHttpRoute(
+            //    name: "DefaultApi",
+            //    routeTemplate: "api/{controller}/{id}",
+            //    defaults: new { id = RouteParameter.Optional }
+            //);
             
-            //config.Services.Replace(typeof(IHttpControllerSelector), new WebApiControllerSelector(config));
-            //将默认xml返回数据格式改为json
-            config.Formatters.XmlFormatter.SupportedMediaTypes.Clear();
-            config.Formatters.JsonFormatter.MediaTypeMappings.Add(new QueryStringMapping("datatype", "json", "application/json"));
-            app.UseWebApi(config);
+            ////config.Services.Replace(typeof(IHttpControllerSelector), new WebApiControllerSelector(config));
+            ////将默认xml返回数据格式改为json
+            //config.Formatters.XmlFormatter.SupportedMediaTypes.Clear();
+            //config.Formatters.JsonFormatter.MediaTypeMappings.Add(new QueryStringMapping("datatype", "json", "application/json"));
+            //app.UseWebApi(config);
         }
         void ConfigOData(IAppBuilder builder)
         {

@@ -17,6 +17,7 @@ namespace BenQGuru.eMES.Web.CommonFactory
             this.connection = new OracleConnection(connectionString);
         }
 
+
         public OracleConnection CreateOracleConnection()
         {
             //var connection = new OracleConnection(connectionString);
