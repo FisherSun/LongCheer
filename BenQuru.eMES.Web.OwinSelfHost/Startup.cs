@@ -4,6 +4,8 @@ using Microsoft.Owin;
 using Owin;
 
 using System.Web.Http;
+using System.Web.Http.Dispatcher;
+using BenQuru.eMES.Web.config;
 
 [assembly: OwinStartup(typeof(BenQuru.eMES.Web.OwinSelfHost.Startup))]
 
@@ -13,15 +15,13 @@ namespace BenQuru.eMES.Web.OwinSelfHost
     {
         public void Configuration(IAppBuilder app)
         {
-            // 有关如何配置应用程序的详细信息，请访问 https://go.microsoft.com/fwlink/?LinkID=316888
-
             HttpConfiguration config = new HttpConfiguration();
             config.Routes.MapHttpRoute(
                 name: "DefaultApi",
                 routeTemplate: "api/{controller}/{id}",
                 defaults: new { id = RouteParameter.Optional }
             );
-
+            config.Services.Replace(typeof(IHttpControllerSelector),new  WebApiControllerSelector(config));
             app.UseWebApi(config);
         }
     }

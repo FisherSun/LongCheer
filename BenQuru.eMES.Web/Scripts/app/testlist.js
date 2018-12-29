@@ -177,7 +177,7 @@
                     appix.push("ExportTitles=" + ExportTitles.join(","));
                     appix.push("ExportColumns=" + ExportColumns.join(","));
 
-                    var url = '/api/NevSubsidyApplies?isExport=true&' + appix.join('&');
+                    var url = '/api/Test?isExport=true&' + appix.join('&');
                     window.location.href = url;
                     $.isLoading('hide');
                 }

@@ -20,6 +20,7 @@ namespace BenQGuru.eMES.Web.DAL
     {
         //DapperFactory factory = new DapperFactory();
         private string connectionString = System.Configuration.ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
+
         /// <summary>
         /// 分页查询
         /// </summary>
@@ -27,6 +28,7 @@ namespace BenQGuru.eMES.Web.DAL
         /// <returns></returns>
         public PagedResult<TBLTEST> GetListByPage(TestSearch search)
         {
+            
             string where = " WHERE 1=1";
 
             if (!string.IsNullOrWhiteSpace(search.UserCode))
@@ -35,7 +37,7 @@ namespace BenQGuru.eMES.Web.DAL
             }
             //if (!string.IsNullOrWhiteSpace(search.Language))
             //{
-            //    where += " AND LanguageA=:Language or LanguageB=:Language or LanguageC=:Language or LanguageD=:Language";
+            //    where += " AND (LanguageA=:Language or LanguageB=:Language or LanguageC=:Language or LanguageD=:Language)";
             //}
             var sql = @"BEGIN OPEN :rslt1 FOR SELECT COUNT(1) FROM tblTest" + where + ";" +
                         "OPEN :rslt2 FOR SELECT * FROM tblTest" + where + ";" +
@@ -43,8 +45,14 @@ namespace BenQGuru.eMES.Web.DAL
             OracleDynamicParameters dynParams = new OracleDynamicParameters();
             dynParams.Add(":rslt1", OracleDbType.RefCursor, ParameterDirection.Output);
             dynParams.Add(":rslt2", OracleDbType.RefCursor, ParameterDirection.Output);
-            dynParams.Add(":UserCode", OracleDbType.Varchar2, ParameterDirection.Input, search.UserCode);
-            //dynParams.Add(":Language", OracleDbType.Varchar2, ParameterDirection.Input, search.Language);
+            if (!string.IsNullOrWhiteSpace(search.UserCode))
+            {
+                dynParams.Add(":UserCode", OracleDbType.Varchar2, ParameterDirection.Input, search.UserCode);
+            }
+            //if (!string.IsNullOrWhiteSpace(search.Language))
+            //{
+            //    dynParams.Add(":Language", OracleDbType.Varchar2, ParameterDirection.Input, search.Language);
+            //}
             using (IDbConnection dbConn = new OracleConnection(connectionString))
             {
                 var queryResult = dbConn.QueryMultiple(sql, param: dynParams);
@@ -53,6 +61,35 @@ namespace BenQGuru.eMES.Web.DAL
                     Total = queryResult.Read<int>().Single(),
                     Rows = queryResult.Read<TBLTEST>().Skip<TBLTEST>(search.Skip).Take<TBLTEST>(search.Count).ToList()
                 };
+            }
+        }
+
+        /// <summary>
+        /// 导出
+        /// </summary>
+        /// <param name="search"></param>
+        /// <returns></returns>
+        public List<TBLTEST> GetListByCondition(TestSearch search)
+        {
+            string where = " WHERE 1=1";
+
+            if (!string.IsNullOrWhiteSpace(search.UserCode))
+            {
+                where += " AND UserCode=:UserCode";
+            }
+            if (!string.IsNullOrWhiteSpace(search.Language))
+            {
+                where += " AND (LanguageA=:Language or LanguageB=:Language or LanguageC=:Language or LanguageD=:Language)";
+            }
+            var sql = @"BEGIN OPEN :rslt1 FOR SELECT * FROM tblTest" + where + ";" +
+                      " END;";
+            OracleDynamicParameters dynParams = new OracleDynamicParameters();
+            dynParams.Add(":rslt1", OracleDbType.RefCursor, ParameterDirection.Output);
+            dynParams.Add(":UserCode", OracleDbType.Varchar2, ParameterDirection.Input, search.UserCode);
+            dynParams.Add(":Language", OracleDbType.Varchar2, ParameterDirection.Input, search.Language);
+            using (IDbConnection dbConn = new OracleConnection(connectionString))
+            {
+                return dbConn.Query<TBLTEST>(sql, param: dynParams).AsList();
             }
         }
 

@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using System.Net.Http;
 using Microsoft.Owin.Hosting;
 //using BenQuru.eMES.Web;
+using System.Reflection;
 
 namespace BenQuru.eMES.Web.OwinSelfHost
 {
@@ -14,19 +15,11 @@ namespace BenQuru.eMES.Web.OwinSelfHost
     {
         static void Main(string[] args)
         {
-            string baseAddress = "http://localhost:80/";
+            string baseAddress = "http://10.89.32.87:9000/";
             // Start OWIN host 
-            using (WebApp.Start<Startup>(url: baseAddress))
+            using (WebApp.Start<BenQuru.eMES.Web.Startup>(url: baseAddress))
             {
-                // Create HttpCient and make a request to api/values 
-                HttpClient client = new HttpClient();
-
-                //var response = client.GetAsync(baseAddress + "api/Test").Result;
-
-                //Console.WriteLine(response);
-                //Console.WriteLine(response.Content.ReadAsStringAsync().Result);
-                //Console.ReadLine();
-                Console.WriteLine("Running on {0}", baseAddress);
+                Console.WriteLine("OWIN自宿主程序已开启！");
                 Console.WriteLine("Press enter to exit");
                 Console.ReadLine();
             }
