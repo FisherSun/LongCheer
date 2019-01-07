@@ -1,0 +1,327 @@
+﻿.index-banner .swiper-wrapper .swiper-slide {
+    position: relative
+}
+
+    .index-banner .swiper-wrapper .swiper-slide img {
+        position: relative;
+        z-index: 1
+    }
+
+    .index-banner .swiper-wrapper .swiper-slide .slide-container {
+        position: absolute;
+        z-index: 2;
+        left: 54.2%;
+        text-align: left;
+        top: 15em;
+        color: #1b365d
+    }
+
+        .index-banner .swiper-wrapper .swiper-slide .slide-container .slide-title {
+            display: inline-block;
+            border-bottom: solid 1px #1b365d;
+            margin-bottom: 2em
+        }
+
+        .index-banner .swiper-wrapper .swiper-slide .slide-container h2 {
+            font-size: 3.25em;
+            margin-top: 0
+        }
+
+        .index-banner .swiper-wrapper .swiper-slide .slide-container p {
+            font-size: 1.25em
+        }
+
+.index-banner .swiper-pagination {
+    right: 10em;
+    width: auto;
+    left: auto;
+    bottom: 20px
+}
+
+@media (min-width:2048px) {
+    .index-banner {
+        width: 1920px;
+        margin: 0 auto
+    }
+}
+
+.custom-swiper .swiper-pagination-bullet {
+    width: 9px;
+    height: 10px;
+    background: url(../images/swiper-pagination.png) no-repeat 0 0;
+    border-radius: 0
+}
+
+    .custom-swiper .swiper-pagination-bullet.swiper-pagination-bullet-active {
+        background-position: 0 -10px
+    }
+
+.index-product-series {
+    font-size: 12px;
+    padding: 4.5em 0;
+    margin: 0 auto;
+    background-color: #fff;
+    -moz-opacity: .9;
+    opacity: .9;
+    position: relative;
+    z-index: 3
+}
+
+    .index-product-series .toggle-icon li {
+        width: 11.1%
+    }
+
+        .index-product-series .toggle-icon li ul {
+            width: 100%;
+            display: none;
+            position: absolute;
+            background-color: #fff
+        }
+
+            .index-product-series .toggle-icon li ul li {
+                width: 100%;
+                padding: .5em 0;
+                text-align: center;
+                border-bottom: 1px dashed #d4d4d4;
+                float: none
+            }
+
+                .index-product-series .toggle-icon li ul li a {
+                    color: #898989
+                }
+
+                .index-product-series .toggle-icon li ul li:last-child {
+                    border-bottom-style: none;
+                    border-right-style: none
+                }
+
+    .index-product-series.align-vertical .toggle-icon li ul {
+        top: 8em
+    }
+
+        .index-product-series.align-vertical .toggle-icon li ul li {
+            border-left-style: none
+        }
+
+    .index-product-series.align-horizontal .toggle-icon {
+        width: 80%
+    }
+
+        .index-product-series.align-horizontal .toggle-icon li {
+            border-style: none
+        }
+
+            .index-product-series.align-horizontal .toggle-icon li a {
+                width: 100%;
+                margin: 0 auto
+            }
+
+                .index-product-series.align-horizontal .toggle-icon li a span {
+                    text-align: left;
+                    float: left
+                }
+
+                    .index-product-series.align-horizontal .toggle-icon li a span:first-child {
+                        width: 25%;
+                        margin-left: 5%
+                    }
+
+                    .index-product-series.align-horizontal .toggle-icon li a span:nth-child(2) {
+                        margin-top: .3em;
+                        float: right;
+                        width: 66%
+                    }
+
+            .index-product-series.align-horizontal .toggle-icon li ul {
+                top: 4em
+            }
+
+                .index-product-series.align-horizontal .toggle-icon li ul li {
+                    border-bottom: 1px dashed #d4d4d4
+                }
+
+                    .index-product-series.align-horizontal .toggle-icon li ul li:last-child {
+                        border-bottom-style: none
+                    }
+
+.special-product {
+    position: relative
+}
+
+    .special-product a {
+        position: absolute;
+        top: 68%;
+        left: 60.1%
+    }
+
+.hot-product {
+    height: 600px;
+    margin: 0 auto
+}
+
+    .hot-product .product-board-container {
+        width: 54%;
+        left: 0;
+        height: 480px
+    }
+
+        .hot-product .product-board-container .mask {
+            text-align: left;
+            padding: 0 1em
+        }
+
+            .hot-product .product-board-container .mask h5 {
+                position: relative;
+                top: 0;
+                left: 0
+            }
+
+                .hot-product .product-board-container .mask h5 span {
+                    position: absolute;
+                    margin-left: -1.25em;
+                    z-index: 2
+                }
+
+        .hot-product .product-board-container .product-board {
+            width: 500px
+        }
+
+            .hot-product .product-board-container .product-board .product-board-title {
+                width: 400px;
+                height: 154px
+            }
+
+            .hot-product .product-board-container .product-board .mask {
+                top: 0;
+                height: 40%;
+                display: none
+            }
+
+                .hot-product .product-board-container .product-board .mask a {
+                    color: #fff
+                }
+
+            .hot-product .product-board-container .product-board .col-md-6:nth-child(n+4) {
+                margin-top: 20px
+            }
+
+    .hot-product .product-q8-container {
+        width: 46%;
+        right: 0;
+        height: 480px
+    }
+
+        .hot-product .product-q8-container .product-q8-ranking {
+            width: 100%;
+            height: 154px;
+            background: url(../images/index/product-ranking-1366.png) no-repeat 0 0;
+            padding: 0 2em;
+            padding-top: .5em;
+            color: #fff;
+            background-color: #1b365d
+        }
+
+            .hot-product .product-q8-container .product-q8-ranking h3 {
+                position: relative;
+                top: 0;
+                left: 0
+            }
+
+                .hot-product .product-q8-container .product-q8-ranking h3 span {
+                    position: absolute;
+                    margin-left: -1.5em;
+                    z-index: 2
+                }
+
+            .hot-product .product-q8-container .product-q8-ranking .rank-like {
+                margin-left: 8em;
+                display: inline-block;
+                color: #fff
+            }
+
+        .hot-product .product-q8-container .product-q8 {
+            width: 500px
+        }
+
+@media (max-width:1024px) {
+    .hot-product .product-board-container .product-board {
+        width: 390px
+    }
+
+        .hot-product .product-board-container .product-board .product-board-title {
+            width: 360px;
+            height: 129px
+        }
+
+    .hot-product .product-q8-container .product-q8-ranking {
+        height: 129px
+    }
+
+    .hot-product .product-q8-container .product-q8 {
+        width: 380px
+    }
+}
+
+@media (min-width:2048px) {
+    .hot-product {
+        width: 1920px
+    }
+
+        .hot-product .product-board-container {
+            top: 210px !important
+        }
+
+        .hot-product .product-q8-container {
+            top: 210px !important
+        }
+}
+
+.news {
+    width: 58%;
+    margin: 0 auto;
+    margin-top: 3.25em
+}
+
+    .news .mask {
+        height: 20%;
+        line-height: 68px
+    }
+
+.recommend {
+    width: 58%;
+    margin: 0 auto;
+    margin: 3.25em auto
+}
+
+    .recommend .mask {
+        height: 100%;
+        line-height: 218px
+    }
+
+@media (min-width:2048px) {
+    .news, .recommend {
+        width: 1114px
+    }
+
+        .news .mask {
+            line-height: 106px
+        }
+
+        .recommend .mask {
+            line-height: 341px
+        }
+}
+
+@media (max-width:1024px) {
+    .news, .recommend {
+        width: 78%
+    }
+
+        .news .mask {
+            line-height: 62px
+        }
+
+        .recommend .mask {
+            line-height: 236px
+        }
+}

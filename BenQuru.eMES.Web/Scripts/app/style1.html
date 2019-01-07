@@ -1,0 +1,409 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Hello world</title>
+    <!--<link href="../../Content/style1/swiper.min.css" rel="stylesheet">
+    <link type="text/css" rel="stylesheet" href="../../Content/style1/common.min.css" />
+    <link type="text/css" rel="stylesheet" href="../../Content/style1/index.min.css" />
+    <script src="../../Content/style1/swiper.min.js"></script>
+    <script src="../../Content/style1/jquery.sticky.min.js"></script>
+    <script src="../../Content/style1/common.min.js?v=v20180503"></script>
+    <script src="../../Content/style1/index.min.js"></script>-->
+    <style type="text/css">
+        .Header {
+            background-image: url(../../Skin/Image/Index_eMES_banner_middle.gif);
+            background-repeat: repeat-x;
+            color:white;
+        }
+
+        .Header_Banner {
+            background-image: url(../../Skin/Image/Index_eMES_banner.gif);
+            background-repeat: no-repeat;
+            background-position: left;
+            height: 53px;
+            width: 100%;
+        }
+
+        .Header_Banner_Width {
+            width: 250px;
+        }
+
+        .Control {
+            background-color: #E3EFFF;
+            background-image: url(../../Skin/Image/index_emes_menu_unselect.gif);
+            background-repeat: repeat-x;
+            color: White;
+            font-size: 8pt;
+        }
+
+        .Island {
+            background-color: #E3EFFF;
+            background-image: url(../../Skin/Image/index_emes_submenu_unselcet.gif);
+            background-repeat: repeat;
+            border: solid 1px #90DADF;
+            color: #006B72;
+        }
+
+        .Hover {
+            background-image: url(../../Skin/Image/Index_eMES_submenu_selcet.gif);
+            border: solid 1px Transparent;
+            cursor:hand;
+            color: White;
+        }
+
+        .TopLevelHover {
+            background-position: center;
+            background-image: url(../../Skin/Image/Index_eMES_menu_select.gif);
+            border: solid 1px Transparent;
+        }
+
+        .Item {
+            background-color: Transparent;
+            background-image: none;
+            border: solid 1px Transparent;
+            padding-top: 5px;
+            padding-bottom: 5px;
+            cursor: hand;
+            font-size: 8pt;
+        }
+
+        .TopLevel {
+            color: White;
+            font-size: 8pt;
+            font-weight: bold;
+        }
+
+        .SubLevel {
+            color: #006B72;
+            font-size: 8pt;
+        }
+
+        .SubLevelHover {
+            background-image: url(../../Skin/Image/Index_eMES_submenu_selcet.gif);
+            border: solid 1px Transparent;
+            color: White;
+        }
+
+
+        #play {
+            background: url('http://cdn1.iconfinder.com/data/icons/iconslandplayer/PNG/64x64/CircleBlue/Play1Pressed.png') center center no-repeat;
+            height: 30px;
+            /*position: absolute;*/
+            /*z-index: 10;*/
+            /*top: 188px;*/
+            width: 80px;
+            text-align: center;
+            left: 150px;
+            cursor: pointer;
+        }
+
+        span#days30 {
+            font-size: 12px;
+        }
+
+        span#free30 {
+            font-size: 16px;
+        }
+
+        .navbar-inverse .navbar-nav > li > a.signup_menu {
+            /*background: #47b32d;*/
+            background: #10929C;
+            border: 1px solid #10929C;
+        }
+    </style>
+</head>
+<body>
+    <TABLE id="TableMain" style="WIDTH: 100%; HEIGHT: 100%" cellspacing="0" cellPadding="0">
+        <tr>
+            <td>
+                <table width="100%" cellpadding="0" cellspacing="0" border="0">
+                    <tr>
+                        <td style="width:340px; height:50px;">
+                            <img src="../../Skin/Image/Index_eMES_banner.gif" width="340" height="50" alt="" runat="server" id="ImageHead" />
+                        </td>
+                        <td class="Header" align="right">
+                            <table width="100%" cellSpacing="0" cellPadding="0" border="0">
+                                <tr>
+                                    <td align="center">
+                                        <table>
+                                            <tr>
+                                                <td align>
+                                                    <asp:label id="lblDepartmentName" runat="server" CssClass="welcome"></asp:label>&nbsp;&nbsp;
+                                                    <asp:label id="lblUserName" runat="server" CssClass="welcome">Customer</asp:label>&nbsp;&nbsp;&nbsp;&nbsp;
+                                                </td>
+                                                <TD noWrap>
+                                                    <asp:label id="lblWelcome" runat="server" CssClass="welcome"> 欢迎使用本系统</asp:label>
+                                                    <asp:Label id="lblOrganization" runat="server" CssClass="welcome"> 您的组织为:</asp:Label>
+                                                    <a runat="server" href="" style="text-decoration:underline;cursor:hand;" Class="welcome" onclick="return LinkOrgList_Click();" id="LinkOrgList" target=_parent>orgnization</a>
+                                                    &nbsp;&nbsp;
+                                                    <asp:Label id="lblDatabase" runat="server" CssClass="welcome"> 数据库:</asp:Label>
+                                                    <asp:label id="lblDBName" runat="server" CssClass="welcome">Longcheer DB</asp:label>
+                                                    <iframe id="iframeDownload" name="iframeDownload" width="0" height="0"></iframe>
+                                                </TD>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                    <td>
+                                    <td width="25"><a href="#" style="color: White" onclick="location.href='FStartPage.aspx';"><asp:Label runat="server" ID="lblHome" Text="首页"></asp:Label></a></td>
+                                    <td width="8" style="color: White">&nbsp;&nbsp;|&nbsp;&nbsp;</td>
+                                    <td width="50"><a href="#" style="color: White" onclick="toolbarReportView_onclick();return false;"><asp:Label runat="server" ID="lblReportPlatfrom" Text="报表平台"></asp:Label></a></td>
+                                    <td width="8" style="color: White">&nbsp;&nbsp;|&nbsp;&nbsp;</td>
+                                    <td width="50"><a href="#" style="color: White" onclick="toolbarPassword_onclick();return false;"><asp:Label runat="server" ID="lblChangePWD" Text="更改密码"></asp:Label></a></td>
+                                    <td width="8" style="color: White">&nbsp;&nbsp;|&nbsp;&nbsp;</td>
+                                    <td width="30"> <a href="#" style="color: White"><asp:Label runat="server" ID="lblHelp" Text="帮助"></asp:Label></a></td>
+                                    <td width="8" style="color: White">&nbsp;&nbsp;|&nbsp;&nbsp;</td>
+                                    <td width="30">
+                                        <asp:LinkButton ID="lnkButtonLogout" style="color: White" runat="server" OnClientClick="return LogoutCheck();" Text="登出"></asp:LinkButton>
+                                    </td>
+                                    <td width="8"><asp:TextBox ID="lblLogout" runat="server" Width="8" Visible="true" style="display:none"></asp:TextBox></td>
+                                </tr>
+                            </table>
+                        </td>
+                        <td style="width:90px; height:50px">
+                            <img src="Skin/Image/Index_eMES_logo.gif" width="90" height="50" alt="" runat="server" id="ImageLogo" />
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+
+        <!--<tr>
+            <td style="HEIGHT: 20px; vertical-align:top">
+
+
+            </td>
+        </tr>-->
+    </TABLE>
+
+    <div style="height:30px;">
+        <nav class="navbar Header">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+
+                </div>
+                <div class="collapse navbar-collapse" id="myNavbar">
+                    <ul class="nav navbar-nav">
+                        <li class="dropdown dropdown_feature">
+                            <a class="dropdown-toggle" data-toggle="dropdown" href="">Features<span class="caret"></span></a>
+                            <ul class="dropdown-menu features_menu">
+                                <li class="col-md-3 col-sm-3">
+                                    <h4>Core</h4>
+                                    <ul>
+                                        <li><a href="http://www.zaarapp.com/features/daily-report-tool">Daily Report Tool</a></li>
+                                        <li><a href="http://www.zaarapp.com/features/task-management">Task Management</a></li>
+                                        <li><a href="http://www.zaarapp.com/features/plan-viewing">Plan Viewing</a></li>
+                                        <!-- <li><a href="http://www.zaarapp.com/features/punch-list">Punch List</a></li> -->
+                                        <li><a href="http://www.zaarapp.com/features/inspection">Inspection</a></li>
+                                        <li><a href="http://www.zaarapp.com/features/offline-access">Offline Access</a></li>
+                                        <li><a href="http://www.zaarapp.com/features/request-for-information">Request for Information</a></li>
+                                        <li><a href="http://www.zaarapp.com/features/safety-and-emergency">Safety and Emergency</a></li>
+                                        <!-- <li><a href="http://www.zaarapp.com/features/message-communication">Message Communication</a></li> -->
+                                    </ul>
+                                </li>
+                                <li class="col-md-3 col-sm-3">
+                                    <h4>Handling</h4>
+                                    <ul>
+                                        <li><a href="http://www.zaarapp.com/features/project-monitor">Project Monitor</a></li>
+                                        <!--<li><a href="http://www.zaarapp.com/features/contractor-management">Contractor Management</a></li>-->
+                                        <li><a href="http://www.zaarapp.com/features/supplier-management">Supplier Management</a></li>
+                                        <li><a href="http://www.zaarapp.com/features/expense-management">Expense Management</a></li>
+                                        <!-- <li><a href="http://www.zaarapp.com/features/customizable-report-form">Customizable Report Form</a></li> -->
+                                        <li><a href="http://www.zaarapp.com/features/inventory-management">Inventory Management</a></li>
+                                        <li><a href="http://www.zaarapp.com/features/weather-monitor">Weather Monitor</a></li>
+                                        <li><a href="http://www.zaarapp.com/features/backup-manager">Backup Manager</a></li>
+                                    </ul>
+                                </li>
+                                <li class="col-md-3 col-sm-3">
+                                    <h4>Tools</h4>
+                                    <ul>
+                                        <li><a href="http://www.zaarapp.com/features/spirit-level">Spirit Level</a></li>
+                                        <li><a href="http://www.zaarapp.com/features/calculator">Calculator</a></li>
+                                        <li>
+                                            <img src="http://www.zaarapp.com/assets/images/vid.png" class="modal_video" data-toggle="modal" data-target="#begin" style="cursor: pointer; height: 200px" /><div id="play" class="modal_video" data-toggle="modal" data-target="#begin"></div>
+                                            <!-- <div class="col-md-6 col-sm-6 col-xs-12"><p class="col-md-12 col-sm-12 col-xs-12"></p>
+                                        <p class="col-md-12 col-sm-12 col-xs-12"></p></div>   -->
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="col-md-3 col-sm-3">
+                                    <h4>Technology</h4>
+                                    <ul>
+                                        <!-- <li><a href="http://www.zaarapp.com/features/external-storage">External Storage</a></li> -->
+                                        <li><a href="http://www.zaarapp.com/features/media-support">Media Support</a></li>
+                                        <li><a href="http://www.zaarapp.com/features/storage-expansion">Storage Expansion</a></li>
+                                        <!-- <li><a href="http://www.zaarapp.com/features/api-access">API Access</a></li> -->
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="dropdown">
+                            <a class="dropdown-toggle" data-toggle="dropdown" href="#">Benefits<span class="caret"></span></a>
+                            <ul class="dropdown-menu benefits_menu">
+                                <li><a href="http://www.zaarapp.com/benefits/efficiency">Efficiency</a></li>
+                                <li><a href="http://www.zaarapp.com/benefits/real-time-update">Real Time Update</a></li>
+                                <li><a href="http://www.zaarapp.com/benefits/mobile-friendly">Mobile Friendly</a></li>
+                                <li><a href="http://www.zaarapp.com/benefits/manage-projects">Manage Projects</a></li>
+                                <li><a href="http://www.zaarapp.com/benefits/business-growth">Business Growth</a></li>
+                                <li><a href="http://www.zaarapp.com/benefits/collaborate">Collaborate</a></li>
+                                <!-- <li><a href="http://www.zaarapp.com/benefits/software-connect">Software Connect</a></li> -->
+                                <!-- <li>
+                              <img src="http://www.zaarapp.com/assets/images/ad_video.jpg" class="col-md-12 col-sm-12 col-xs-12 modal_video" data-toggle="modal" data-target="#benefits" />
+                            </li> -->
+                            </ul>
+                        </li>
+                        <li><a href="http://www.zaarapp.com/company">Company</a></li>
+                        <!-- <li><a href="#">Press</a></li> -->
+                        <li class="dropdown">
+                            <a class="dropdown-toggle" data-toggle="dropdown" href="">Help<span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="http://help.zaarapp.com">FAQ</a></li>
+                                <!-- <li><a href="#">Training Videos</a></li> -->
+                                <li><a href="http://help.zaarapp.com/support/">Support</a></li>
+                                <li><a href="http://zaarapp.com/feedback/">Feedback</a></li>
+                                <li><a href="http://help.zaarapp.com/training-videos/" target="_blank">Training Videos</a></li>
+                                <!-- <li><a href="#">Developer</a></li>  -->
+                                <!-- <li>
+                              <img src="http://www.zaarapp.com/assets/images/ad_video.jpg" class="col-md-12 col-sm-12 col-xs-12 modal_video" data-toggle="modal" data-target="#help" />
+                            </li> -->
+                            </ul>
+                        </li>
+                        <li><a href="http://www.zaarapp.com/price">Price</a></li>
+                        <li><a href="https://console.zaarapp.com/" class="login_menu">Login</a></li>
+                        <li><a href="http://www.zaarapp.com/sign_up" class="signup_menu"><span id="free30">30</span><span id="days30"> Days Free Trail</span></a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </div>
+
+    <div class="panel panel-default table">
+        <div class="panel-heading row">
+            <div class="col-md-1" style="cursor:pointer" data-bind="click:Search">
+                <img src="../../Content/images/Icon-Search.png" />
+                <span data-bind="text:rm.button.buttonQuery"></span>
+            </div>
+            <div class="col-md-1" style="cursor:pointer" data-bind="click:New">
+                <img src="../../Content/images/Add.png">
+                <span data-bind="text:rm.button.buttonCreate"></span>
+            </div>
+            <div class="col-md-1" data-bind="click:Edit.bind($data, selectedItem()[0])">
+                <span data-bind="attr:{class:selectedItem().length>0?'btnAbled':'btnDisable'}">
+                    <img src="../../Content/images/input.png">
+                    <span data-bind="text:rm.button.buttonEdit"></span>
+                </span>
+            </div>
+            <div class="col-md-1" data-bind="click:Del">
+                <span data-bind="attr:{class:selectedItem().length>0?'btnAbled':'btnDisable'}">
+                    <img src="../../Content/images/delete.gif.png">
+                    <span data-bind="text:rm.button.buttonDelete"></span>
+                </span>
+            </div>
+            <div class="col-md-1" style="cursor:pointer;" data-bind="click:Export">
+                <span>
+                    <img src="../../Content/images/icon_export.png">
+                    <span data-bind="text:rm.button.buttonExport"></span>
+                </span>
+            </div>
+        </div>
+        <div class="form-horizontal panel-body row" data-bind="with: objectValue, event: { keyup: function (data, event) { if (event.keyCode === 13) { Search();}}}">
+            <div class="form-group col-md-4">
+                <label data-bind="text:'用户：'" class="col-md-4"></label>
+                <div class="col-md-8">
+                    <input type="text" class="form-control" data-bind="value:UserCode">
+                </div>
+            </div>
+            <!--<div class="form-group col-md-4">
+                <label data-bind="text:'编程语言：'" class="col-md-4"></label>
+                <div class="col-md-8">
+                    <input type="text" class="form-control" data-bind="value:Language">
+                </div>
+            </div>-->
+        </div>
+        <div class="panel-body form-inline" data-bind="with:bodylist">
+            <table class="table table-bordered table-striped table-responsive table-hover">
+                <thead>
+                    <tr>
+                        <th class="text-center">
+                            <input type="checkbox" data-bind="checked:$root.selectAll" name="checkbox" />
+                        </th>
+                        <th class="text-center" data-bind="text:$root.rm.label.Index()"></th>
+                        <!--ko foreach:{ data: Settings.Columns }-->
+                        <th class="text-center" data-bind="attr:{style:UISetting().Head().Style()}">
+                            <div class="dropdown">
+                                <span style="cursor:pointer" data-bind="text:DisplayName,click:$parent.SetOrderby"></span>
+                                <span data-bind="text: Order() ? (Order() == 'asc' ? '↑':'↓') : ''"></span>
+                            </div>
+                        </th>
+                        <!--/ko-->
+                    </tr>
+                </thead>
+                <tbody data-bind="foreach:{ data :Result, as : 'item'}">
+                    <tr data-bind="click:$root.clickTr">
+                        <td class="text-center">
+                            <input type="checkbox" data-bind="checkedValue:$data,checked:$root.selectedItem" />
+                        </td>
+                        <td data-bind="text:$index()+1" class="text-center"></td>
+                        <!--ko foreach:{ data: $parent.Settings.Columns, as : 'columns' }-->
+                        <td data-bind="text:item[columns.Name()]" class="text-center"></td>
+                        <!-- /ko -->
+                    </tr>
+                </tbody>
+            </table>
+            <div data-bind="compose: { model:$parent.s, view:'widgets/tableView/pageNav.html' }"></div>
+        </div>
+    </div>
+
+    <!--新建or修改-->
+    <div class="modal fade" id="myModal" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" data-bind="text:'最喜爱的编程语言调查'"></h4>
+                </div>
+                <div class="modal-body form-horizontal panel-body" data-bind="with:objectEditValue">
+                    <div class="form-group">
+                        <label class="col-md-2" data-bind="text:'用户：'"></label>
+                        <div class="col-md-8">
+                            <input type="text" class="form-control" data-bind="value:UserCode,enable:$root.keyValue()=='new'">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-2" data-bind="text:'编程语言1：'"></label>
+                        <div class="col-md-8">
+                            <input type="text" class="form-control" data-bind="value:LanguageA">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-2" data-bind="text:'编程语言2：'"></label>
+                        <div class="col-md-8">
+                            <input type="text" class="form-control" data-bind="value:LanguageB">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-2" data-bind="text:'编程语言3：'"></label>
+                        <div class="col-md-8">
+                            <input type="text" class="form-control" data-bind="value:LanguageC">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-2" data-bind="text:'编程语言4：'"></label>
+                        <div class="col-md-8">
+                            <input type="text" class="form-control" data-bind="value:LanguageD">
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" data-bind="click:$root.Save">保存</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
