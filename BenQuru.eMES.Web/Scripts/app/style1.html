@@ -17,6 +17,13 @@
             color:white;
         }
 
+        .Menu {
+            background-image: url(../../Skin/Image/Index_eMES_banner_middle.gif);
+            background-repeat: repeat-x;
+            color:white;
+            font-size:12pt;
+        }
+
         .Header_Banner {
             background-image: url(../../Skin/Image/Index_eMES_banner.gif);
             background-repeat: no-repeat;
@@ -89,21 +96,13 @@
         #play {
             background: url('http://cdn1.iconfinder.com/data/icons/iconslandplayer/PNG/64x64/CircleBlue/Play1Pressed.png') center center no-repeat;
             height: 30px;
-            /*position: absolute;*/
-            /*z-index: 10;*/
-            /*top: 188px;*/
+            position: absolute;
+            z-index: 10;
+            top: 188px;
             width: 80px;
             text-align: center;
             left: 150px;
             cursor: pointer;
-        }
-
-        span#days30 {
-            font-size: 12px;
-        }
-
-        span#free30 {
-            font-size: 16px;
         }
 
         .navbar-inverse .navbar-nav > li > a.signup_menu {
@@ -167,83 +166,42 @@
                 </table>
             </td>
         </tr>
-
-        <!--<tr>
-            <td style="HEIGHT: 20px; vertical-align:top">
-
-
-            </td>
-        </tr>-->
     </TABLE>
 
-    <div style="height:30px;">
-        <nav class="navbar Header">
+    <div class="Menu">
+        <nav class="navbar">
             <div class="container">
                 <div class="navbar-header">
+                    <!-- 定义隐藏下拉按钮 -->
                     <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-
                 </div>
-                <div class="collapse navbar-collapse" id="myNavbar">
+                <div class="collapse navbar-collapse" style="font-size:10pt;" id="myNavbar">
                     <ul class="nav navbar-nav">
-                        <li class="dropdown dropdown_feature">
-                            <a class="dropdown-toggle" data-toggle="dropdown" href="">Features<span class="caret"></span></a>
+                        <li class="dropdown">
+                            <a class="dropdown-toggle" data-toggle="dropdown" href="">基础设置<span class="caret"></span></a>
                             <ul class="dropdown-menu features_menu">
-                                <li class="col-md-3 col-sm-3">
-                                    <h4>Core</h4>
-                                    <ul>
-                                        <li><a href="http://www.zaarapp.com/features/daily-report-tool">Daily Report Tool</a></li>
-                                        <li><a href="http://www.zaarapp.com/features/task-management">Task Management</a></li>
-                                        <li><a href="http://www.zaarapp.com/features/plan-viewing">Plan Viewing</a></li>
-                                        <!-- <li><a href="http://www.zaarapp.com/features/punch-list">Punch List</a></li> -->
-                                        <li><a href="http://www.zaarapp.com/features/inspection">Inspection</a></li>
-                                        <li><a href="http://www.zaarapp.com/features/offline-access">Offline Access</a></li>
-                                        <li><a href="http://www.zaarapp.com/features/request-for-information">Request for Information</a></li>
-                                        <li><a href="http://www.zaarapp.com/features/safety-and-emergency">Safety and Emergency</a></li>
-                                        <!-- <li><a href="http://www.zaarapp.com/features/message-communication">Message Communication</a></li> -->
+                                <li class="dropdown">
+                                    <a href="http://www.zaarapp.com/features/daily-report-tool">产品资料维护<span class="caret"></span></a>
+                                    <ul class="dropdown-menu features_menu">
+                                        <li>产品维护</li>
+                                        <li>产品维护</li>
+                                        <li>产品维护</li>
                                     </ul>
                                 </li>
-                                <li class="col-md-3 col-sm-3">
-                                    <h4>Handling</h4>
-                                    <ul>
-                                        <li><a href="http://www.zaarapp.com/features/project-monitor">Project Monitor</a></li>
-                                        <!--<li><a href="http://www.zaarapp.com/features/contractor-management">Contractor Management</a></li>-->
-                                        <li><a href="http://www.zaarapp.com/features/supplier-management">Supplier Management</a></li>
-                                        <li><a href="http://www.zaarapp.com/features/expense-management">Expense Management</a></li>
-                                        <!-- <li><a href="http://www.zaarapp.com/features/customizable-report-form">Customizable Report Form</a></li> -->
-                                        <li><a href="http://www.zaarapp.com/features/inventory-management">Inventory Management</a></li>
-                                        <li><a href="http://www.zaarapp.com/features/weather-monitor">Weather Monitor</a></li>
-                                        <li><a href="http://www.zaarapp.com/features/backup-manager">Backup Manager</a></li>
-                                    </ul>
-                                </li>
-                                <li class="col-md-3 col-sm-3">
-                                    <h4>Tools</h4>
-                                    <ul>
-                                        <li><a href="http://www.zaarapp.com/features/spirit-level">Spirit Level</a></li>
-                                        <li><a href="http://www.zaarapp.com/features/calculator">Calculator</a></li>
-                                        <li>
-                                            <img src="http://www.zaarapp.com/assets/images/vid.png" class="modal_video" data-toggle="modal" data-target="#begin" style="cursor: pointer; height: 200px" /><div id="play" class="modal_video" data-toggle="modal" data-target="#begin"></div>
-                                            <!-- <div class="col-md-6 col-sm-6 col-xs-12"><p class="col-md-12 col-sm-12 col-xs-12"></p>
-                                        <p class="col-md-12 col-sm-12 col-xs-12"></p></div>   -->
-                                        </li>
-                                    </ul>
-                                </li>
-                                <li class="col-md-3 col-sm-3">
-                                    <h4>Technology</h4>
-                                    <ul>
-                                        <!-- <li><a href="http://www.zaarapp.com/features/external-storage">External Storage</a></li> -->
-                                        <li><a href="http://www.zaarapp.com/features/media-support">Media Support</a></li>
-                                        <li><a href="http://www.zaarapp.com/features/storage-expansion">Storage Expansion</a></li>
-                                        <!-- <li><a href="http://www.zaarapp.com/features/api-access">API Access</a></li> -->
-                                    </ul>
-                                </li>
+                                <li><a href="http://www.zaarapp.com/features/task-management">Task Management</a></li>
+                                <li><a href="http://www.zaarapp.com/features/plan-viewing">Plan Viewing</a></li>
+                                <li><a href="http://www.zaarapp.com/features/inspection">Inspection</a></li>
+                                <li><a href="http://www.zaarapp.com/features/offline-access">Offline Access</a></li>
+                                <li><a href="http://www.zaarapp.com/features/request-for-information">Request for Information</a></li>
+                                <li><a href="http://www.zaarapp.com/features/safety-and-emergency">Safety and Emergency</a></li>
                             </ul>
                         </li>
                         <li class="dropdown">
-                            <a class="dropdown-toggle" data-toggle="dropdown" href="#">Benefits<span class="caret"></span></a>
+                            <a class="dropdown-toggle" data-toggle="dropdown" href="#">生产管控<span class="caret"></span></a>
                             <ul class="dropdown-menu benefits_menu">
                                 <li><a href="http://www.zaarapp.com/benefits/efficiency">Efficiency</a></li>
                                 <li><a href="http://www.zaarapp.com/benefits/real-time-update">Real Time Update</a></li>
@@ -251,31 +209,68 @@
                                 <li><a href="http://www.zaarapp.com/benefits/manage-projects">Manage Projects</a></li>
                                 <li><a href="http://www.zaarapp.com/benefits/business-growth">Business Growth</a></li>
                                 <li><a href="http://www.zaarapp.com/benefits/collaborate">Collaborate</a></li>
-                                <!-- <li><a href="http://www.zaarapp.com/benefits/software-connect">Software Connect</a></li> -->
-                                <!-- <li>
-                              <img src="http://www.zaarapp.com/assets/images/ad_video.jpg" class="col-md-12 col-sm-12 col-xs-12 modal_video" data-toggle="modal" data-target="#benefits" />
-                            </li> -->
                             </ul>
                         </li>
-                        <li><a href="http://www.zaarapp.com/company">Company</a></li>
-                        <!-- <li><a href="#">Press</a></li> -->
+                        <li><a href="http://www.zaarapp.com/company">物料管理</a></li>
                         <li class="dropdown">
-                            <a class="dropdown-toggle" data-toggle="dropdown" href="">Help<span class="caret"></span></a>
+                            <a class="dropdown-toggle" data-toggle="dropdown" href="">成品出入库<span class="caret"></span></a>
                             <ul class="dropdown-menu">
                                 <li><a href="http://help.zaarapp.com">FAQ</a></li>
-                                <!-- <li><a href="#">Training Videos</a></li> -->
                                 <li><a href="http://help.zaarapp.com/support/">Support</a></li>
                                 <li><a href="http://zaarapp.com/feedback/">Feedback</a></li>
                                 <li><a href="http://help.zaarapp.com/training-videos/" target="_blank">Training Videos</a></li>
-                                <!-- <li><a href="#">Developer</a></li>  -->
-                                <!-- <li>
-                              <img src="http://www.zaarapp.com/assets/images/ad_video.jpg" class="col-md-12 col-sm-12 col-xs-12 modal_video" data-toggle="modal" data-target="#help" />
-                            </li> -->
                             </ul>
                         </li>
-                        <li><a href="http://www.zaarapp.com/price">Price</a></li>
-                        <li><a href="https://console.zaarapp.com/" class="login_menu">Login</a></li>
-                        <li><a href="http://www.zaarapp.com/sign_up" class="signup_menu"><span id="free30">30</span><span id="days30"> Days Free Trail</span></a></li>
+                        <li><a href="http://www.zaarapp.com/price">SMT管理</a></li>
+                        <li><a href="https://console.zaarapp.com/" class="login_menu">设备管理</a></li>
+                        <li class="dropdown">
+                            <a class="dropdown-toggle" data-toggle="dropdown" href="">报表查询<span class="caret"></span></a>
+                            <ul class="dropdown-menu features_menu">
+                                <li><a href="http://www.zaarapp.com/features/daily-report-tool">Daily Report Tool</a></li>
+                                <li><a href="http://www.zaarapp.com/features/task-management">Task Management</a></li>
+                                <li><a href="http://www.zaarapp.com/features/plan-viewing">Plan Viewing</a></li>
+                                <li><a href="http://www.zaarapp.com/features/inspection">Inspection</a></li>
+                                <li><a href="http://www.zaarapp.com/features/offline-access">Offline Access</a></li>
+                                <li><a href="http://www.zaarapp.com/features/request-for-information">Request for Information</a></li>
+                                <li><a href="http://www.zaarapp.com/features/safety-and-emergency">Safety and Emergency</a></li>
+                            </ul>
+                        </li>
+                        <li class="dropdown">
+                            <a class="dropdown-toggle" data-toggle="dropdown" href="#">看板管理<span class="caret"></span></a>
+                            <ul class="dropdown-menu benefits_menu">
+                                <li><a href="http://www.zaarapp.com/benefits/efficiency">Efficiency</a></li>
+                                <li><a href="http://www.zaarapp.com/benefits/real-time-update">Real Time Update</a></li>
+                                <li><a href="http://www.zaarapp.com/benefits/mobile-friendly">Mobile Friendly</a></li>
+                                <li><a href="http://www.zaarapp.com/benefits/manage-projects">Manage Projects</a></li>
+                                <li><a href="http://www.zaarapp.com/benefits/business-growth">Business Growth</a></li>
+                                <li><a href="http://www.zaarapp.com/benefits/collaborate">Collaborate</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="http://www.zaarapp.com/company">报表平台</a></li>
+                        <li class="dropdown">
+                            <a class="dropdown-toggle" data-toggle="dropdown" href="">绩效管理<span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="http://help.zaarapp.com">FAQ</a></li>
+                                <li><a href="http://help.zaarapp.com/support/">Support</a></li>
+                                <li><a href="http://zaarapp.com/feedback/">Feedback</a></li>
+                                <li><a href="http://help.zaarapp.com/training-videos/" target="_blank">Training Videos</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="http://www.zaarapp.com/price">系统维护</a></li>
+                        <li><a href="https://console.zaarapp.com/" class="login_menu">文档管理</a></li>
+                        <li class="dropdown">
+                            <a class="dropdown-toggle" data-toggle="dropdown" href="">DOA<span class="caret"></span></a>
+                            <ul class="dropdown-menu features_menu">
+                                <li><a href="http://www.zaarapp.com/features/daily-report-tool">Daily Report Tool</a></li>
+                                <li><a href="http://www.zaarapp.com/features/task-management">Task Management</a></li>
+                                <li><a href="http://www.zaarapp.com/features/plan-viewing">Plan Viewing</a></li>
+                                <li><a href="http://www.zaarapp.com/features/inspection">Inspection</a></li>
+                                <li><a href="http://www.zaarapp.com/features/offline-access">Offline Access</a></li>
+                                <li><a href="http://www.zaarapp.com/features/request-for-information">Request for Information</a></li>
+                                <li><a href="http://www.zaarapp.com/features/safety-and-emergency">Safety and Emergency</a></li>
+                            </ul>
+                        </li>
+                        
                     </ul>
                 </div>
             </div>
