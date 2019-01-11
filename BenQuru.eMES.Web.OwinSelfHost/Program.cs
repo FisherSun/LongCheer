@@ -17,7 +17,13 @@ namespace BenQuru.eMES.Web.OwinSelfHost
         {
             string baseAddress = "http://10.89.32.87:9000/";
             // Start OWIN host 
-            using (WebApp.Start<BenQuru.eMES.Web.Startup>(url: baseAddress))
+            //using (WebApp.Start<BenQuru.eMES.Web.Startup>(url: baseAddress))
+            //{
+            //    Console.WriteLine("OWIN自宿主程序已开启！");
+            //    Console.WriteLine("Press enter to exit");
+            //    Console.ReadLine();
+            //}
+            using (WebApp.Start<Startup>(url: baseAddress))
             {
                 Console.WriteLine("OWIN自宿主程序已开启！");
                 Console.WriteLine("Press enter to exit");

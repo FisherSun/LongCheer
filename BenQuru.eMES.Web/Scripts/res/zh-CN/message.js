@@ -1,7 +1,8 @@
 ﻿define([],
     function () {
         return {
-
+            PlaseFillUserName: '用户名不能为空',
+            PleaseFillPassword:'密码不能为空',
             PleaseFillActualQuantity: '请填写实际数量',
 
             Confirm: '确认',
@@ -590,20 +591,7 @@
             ClmAuditRuleSuccessSaved: '保存成功',
             ClmAuditFullyFillInBeforSubmit: '请将扣款金额填写完整再提交',
             ClmAuditUploadFailed: '上传失败',
-            /**********保修审计，预算监控--结束**********/
-            ClmChooseSelfScrap: '请选择自行销毁的销毁单',
-            NotJustSubmitStatus: '不是已上报状态禁止审核',
-            CantMixOptions: '不能混合选择普通调拨与呆滞件调拨',
-            ChooseDataNoSupplier: '请选择没有供应商的数据',
-            NoDebitData: '无扣款数据',
-            CantDeleteNotSaveData: '该经销商未设置安全金额无法删除!',
-            ConfirmSwitchOnOrder: '是否确认开启转换',
-            ConfirmSwitchOffOrder: '是否确认关闭转换',
-            ConfirmInvalid: '确认失效',
-            ClmBoxNoTooLong: '箱号过长，每个批次建议不超过50个货箱',
-            PackageContentNotAllowEmpty: '活动包内容不能为空',
-            ComfirmStopSelectedSignleData: '确认终止单据号【[DelNo]】的数据吗？',
-            ComfirmStopSelectedMutliData: '确认终止选中的【[DelNum]】条数据吗？',
+
 
         };
     });

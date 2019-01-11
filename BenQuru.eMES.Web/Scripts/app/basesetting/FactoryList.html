@@ -1,0 +1,123 @@
+﻿<div class="panel panel-default table">
+    <div class="panel-heading row">
+        <div class="col-md-1" style="cursor:pointer" data-bind="click:Search">
+            <img src="../../Content/images/Icon-Search.png" />
+            <span data-bind="text:rm.button.buttonQuery"></span>
+        </div>
+        <div class="col-md-1" style="cursor:pointer" data-bind="click:New">
+            <img src="../../Content/images/Add.png">
+            <span data-bind="text:rm.button.buttonCreate"></span>
+        </div>
+        <div class="col-md-1" data-bind="click:Edit.bind($data, selectedItem()[0])">
+            <span data-bind="attr:{class:selectedItem().length>0?'btnAbled':'btnDisable'}">
+                <img src="../../Content/images/input.png">
+                <span data-bind="text:rm.button.buttonEdit"></span>
+            </span>
+        </div>
+        <div class="col-md-1" data-bind="click:Del">
+            <span data-bind="attr:{class:selectedItem().length>0?'btnAbled':'btnDisable'}">
+                <img src="../../Content/images/delete.gif.png">
+                <span data-bind="text:rm.button.buttonDelete"></span>
+            </span>
+        </div>
+        <div class="col-md-1" style="cursor:pointer;" data-bind="click:Export">
+            <span>
+                <img src="../../Content/images/icon_export.png">
+                <span data-bind="text:rm.button.buttonExport"></span>
+            </span>
+        </div>
+    </div>
+    <div class="form-horizontal panel-body row" data-bind="with: objectValue, event: { keyup: function (data, event) { if (event.keyCode === 13) { Search();}}}">
+        <div class="form-group col-md-4">
+            <label data-bind="text:'工厂代码：'" class="col-md-3"></label>
+            <div class="col-md-9">
+                <input type="text" class="form-control" data-bind="value:FACCODE">
+            </div>
+        </div>
+        <!--<div class="form-group col-md-4">
+            <label data-bind="text:'编程语言：'" class="col-md-4"></label>
+            <div class="col-md-8">
+                <input type="text" class="form-control" data-bind="value:Language">
+            </div>
+        </div>-->
+    </div>
+    <div class="panel-body form-inline" data-bind="with:bodylist">
+        <table class="table table-bordered table-striped table-responsive table-hover">
+            <thead>
+                <tr>
+                    <th class="text-center">
+                        <input type="checkbox" data-bind="checked:$root.selectAll" name="checkbox" />
+                    </th>
+                    <th class="text-center" data-bind="text:$root.rm.label.Index()"></th>
+                    <!--ko foreach:{ data: Settings.Columns }-->
+                    <th class="text-center" data-bind="attr:{style:UISetting().Head().Style()}">
+                        <div class="dropdown">
+                            <span style="cursor:pointer" data-bind="text:DisplayName,click:$parent.SetOrderby"></span>
+                            <span data-bind="text: Order() ? (Order() == 'asc' ? '↑':'↓') : ''"></span>
+                        </div>
+                    </th>
+                    <!--/ko-->
+                </tr>
+            </thead>
+            <tbody data-bind="foreach:{ data :Result, as : 'item'}">
+                <tr data-bind="click:$root.clickTr">
+                    <td class="text-center">
+                        <input type="checkbox" data-bind="checkedValue:$data,checked:$root.selectedItem" />
+                    </td>
+                    <td data-bind="text:$index()+1" class="text-center"></td>
+                    <!--ko foreach:{ data: $parent.Settings.Columns, as : 'columns' }-->
+                    <td data-bind="text:item[columns.Name()]" class="text-center"></td>
+                    <!-- /ko -->
+                </tr>
+            </tbody>
+        </table>
+        <div data-bind="compose: { model:$parent.s, view:'widgets/tableView/pageNav.html' }"></div>
+    </div>
+</div>
+
+<!--新建or修改-->
+<!--<div class="modal fade" id="myModal" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" data-bind="text:'最喜爱的编程语言调查'"></h4>
+            </div>
+            <div class="modal-body form-horizontal panel-body" data-bind="with:objectEditValue">
+                <div class="form-group">
+                    <label class="col-md-2" data-bind="text:'用户：'"></label>
+                    <div class="col-md-8">
+                        <input type="text" class="form-control" data-bind="value:UserCode,enable:$root.keyValue()=='new'">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-2" data-bind="text:'编程语言1：'"></label>
+                    <div class="col-md-8">
+                        <input type="text" class="form-control" data-bind="value:LanguageA">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-2" data-bind="text:'编程语言2：'"></label>
+                    <div class="col-md-8">
+                        <input type="text" class="form-control" data-bind="value:LanguageB">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-2" data-bind="text:'编程语言3：'"></label>
+                    <div class="col-md-8">
+                        <input type="text" class="form-control" data-bind="value:LanguageC">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-2" data-bind="text:'编程语言4：'"></label>
+                    <div class="col-md-8">
+                        <input type="text" class="form-control" data-bind="value:LanguageD">
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" data-bind="click:$root.Save">保存</button>
+            </div>
+        </div>
+    </div>
+</div>-->

@@ -1,68 +1,770 @@
-﻿<div class="row hidden-xs hidden-sm df-bottom-line" style="padding-left:10px;padding-top: 12px;padding-bottom: 0px;" data-bind="visible:(showInCRM() == false)">
-    <div class="container">
-        <div class="row">
-            <h4 class="col-sm-12"></h4>
-        </div>
-    </div>
-</div>
-<!--<div class="row" data-bind="visible:user.logined() && (showInCRM() == false)" >-->
-<div class="row">
-        <nav class="navbar navbar-default">
-            <div class="container">
-                <div class="navbar-header">
-                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-                        <span class="sr-only">Toggle navigation</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
+﻿<style>
+    .Header {
+        background-image: url(../../Skin/Image/Index_eMES_banner_middle.gif);
+        background-repeat: repeat-x;
+        color: white;
+    }
 
-                    <a class="navbar-brand" href="#">
+    .Menu {
+        background-image: url(../../Skin/Image/Index_eMES_banner_middle.gif);
+        background-repeat: repeat-x;
+        color: white;
+        font-size: 12pt;
+    }
 
 
-                    </a>
+    .navbar-brand {
+        padding: 29px 15px;
+        height: auto;
+    }
 
-                </div>
-                <div id="navbar" class="collapse navbar-collapse ">
-                    <ul class="nav navbar-nav">
-                        <!--ko foreach:user.naviagtion()-->
-                        <!--ko if:Children().length>0-->
-                        <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-                                <!--ko text:Name--><!--/ko-->
-                                <span class="caret"></span>
-                            </a>
-                            <ul class="dropdown-menu" data-bind="foreach:Children()">
-                                <li><a href="#" data-bind="text:Name,attr:{href:'#'+Hash()}"></a></li>
-                            </ul>
-                        </li>
-                        <!--/ko-->
-                        <!--ko if:Children().length===0-->
-                        <li data-bind="css:{active:isActivate()}"><a data-bind="text:Name,attr:{href:'#'+Hash()}"></a></li>
-                        <!--/ko-->
-                        <!--/ko-->
-                    </ul>
-                    <ul class="nav navbar-nav navbar-right">
-                        <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-                                <span class="glyphicon glyphicon-user"></span>
-                                <span class="caret"></span>
-                            </a>
-                            <ul class="dropdown-menu">
-                                <li><a href="#" data-bind="click:user.logoff">注销</a></li>
-                                <li><a href="#" data-bind="click:user.changePwd">修改密码</a></li>
-                            </ul>
-                        </li>
+    nav.navbar.bootsnav {
+        border: none;
+        margin-bottom: 150px;
+    }
 
-                    </ul>
-                </div>
+    .navbar-nav {
+        float: left;
+    }
+
+    nav.navbar.bootsnav ul.nav > li > a {
+        color: #474747;
+        text-transform: uppercase;
+        padding: 30px;
+    }
+
+    nav.navbar.bootsnav ul.nav > li:hover {
+        background: #f4f4f4;
+    }
+
+    .nav > li:after {
+        content: "";
+        width: 0;
+        height: 5px;
+        background: #34c9dd;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        transition: all 0.5s ease 0s;
+    }
+
+    .nav > li:hover:after {
+        width: 100%;
+    }
+
+    nav.navbar.bootsnav ul.nav > li.dropdown > a.dropdown-toggle:after {
+        content: "+";
+        font-family: 'FontAwesome';
+        font-size: 16px;
+        font-weight: 500;
+        position: absolute;
+        top: 35%;
+        right: 10%;
+        transition: all 0.4s ease 0s;
+    }
+
+    nav.navbar.bootsnav ul.nav > li.dropdown.on > a.dropdown-toggle:after {
+        content: "\f105";
+        transform: rotate(90deg);
+    }
+
+    .dropdown-menu.multi-dropdown {
+        position: absolute;
+        left: -100% !important;
+    }
+
+    nav.navbar.bootsnav li.dropdown ul.dropdown-menu {
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+        border: none;
+    }
+
+    @media only screen and (max-width:990px) {
+        nav.navbar.bootsnav ul.nav > li.dropdown > a.dropdown-toggle:after,
+        nav.navbar.bootsnav ul.nav > li.dropdown.on > a.dropdown-toggle:after {
+            content: " ";
+        }
+
+        .dropdown-menu.multi-dropdown {
+            left: 0 !important;
+        }
+
+        nav.navbar.bootsnav ul.nav > li:hover {
+            background: transparent;
+        }
+
+        nav.navbar.bootsnav ul.nav > li > a {
+            margin: 0;
+        }
+    }
+</style>
+<TABLE id="TableMain" style="WIDTH: 100%; HEIGHT: 100%" cellspacing="0" cellPadding="0">
+    <tr>
+        <td>
+            <table width="100%" cellpadding="0" cellspacing="0" border="0">
+                <tr>
+                    <td style="width:340px; height:50px;">
+                        <img src="../../Skin/Image/Index_eMES_banner.gif" width="340" height="50" alt="" runat="server" id="ImageHead" />
+                    </td>
+                    <td class="Header" align="right">
+                        <table width="100%" cellSpacing="0" cellPadding="0" border="0">
+                            <tr>
+                                <td align="center">
+                                    <table>
+                                        <tr>
+                                            <td align>
+                                                <asp:label id="lblDepartmentName" runat="server" CssClass="welcome"></asp:label>&nbsp;&nbsp;
+                                                <asp:label id="lblUserName" runat="server" CssClass="welcome">Customer</asp:label>&nbsp;&nbsp;&nbsp;&nbsp;
+                                            </td>
+                                            <TD noWrap>
+                                                <asp:label id="lblWelcome" runat="server" CssClass="welcome"> 欢迎使用本系统</asp:label>
+                                                <asp:Label id="lblOrganization" runat="server" CssClass="welcome"> 您的组织为:</asp:Label>
+                                                <a runat="server" href="" style="text-decoration:underline;cursor:hand;" Class="welcome" onclick="return LinkOrgList_Click();" id="LinkOrgList" target=_parent>orgnization</a>
+                                                &nbsp;&nbsp;
+                                                <asp:Label id="lblDatabase" runat="server" CssClass="welcome"> 数据库:</asp:Label>
+                                                <asp:label id="lblDBName" runat="server" CssClass="welcome">Longcheer DB</asp:label>
+                                                <iframe id="iframeDownload" name="iframeDownload" width="0" height="0"></iframe>
+                                            </TD>
+                                        </tr>
+                                    </table>
+                                </td>
+                                <!--<td width="25"><a href="#" style="color: White" onclick="location.href='FStartPage.aspx';"><asp:Label runat="server" ID="lblHome" Text="首页"></asp:Label></a></td>
+                                <td width="8" style="color: White">&nbsp;&nbsp;|&nbsp;&nbsp;</td>
+                                <td width="50"><a href="#" style="color: White" onclick="toolbarReportView_onclick();return false;"><asp:Label runat="server" ID="lblReportPlatfrom" Text="报表平台"></asp:Label></a></td>
+                                <td width="8" style="color: White">&nbsp;&nbsp;|&nbsp;&nbsp;</td>
+                                <td width="50"><a href="#" style="color: White" onclick="toolbarPassword_onclick();return false;"><asp:Label runat="server" ID="lblChangePWD" Text="更改密码"></asp:Label></a></td>
+                                <td width="8" style="color: White">&nbsp;&nbsp;|&nbsp;&nbsp;</td>
+                                <td width="30"> <a href="#" style="color: White"><asp:Label runat="server" ID="lblHelp" Text="帮助"></asp:Label></a></td>
+                                <td width="8" style="color: White">&nbsp;&nbsp;|&nbsp;&nbsp;</td>
+                                <td width="30">
+                                    <asp:LinkButton ID="lnkButtonLogout" style="color: White" runat="server" OnClientClick="return LogoutCheck();" Text="登出"></asp:LinkButton>
+                                </td>
+                                <td width="8"><asp:TextBox ID="lblLogout" runat="server" Width="8" Visible="true" style="display:none"></asp:TextBox></td>-->
+                            </tr>
+                        </table>
+                    </td>
+                    <td style="width:90px; height:50px">
+                        <img src="Skin/Image/Index_eMES_logo.gif" width="90" height="50" alt="" runat="server" id="ImageLogo" />
+                    </td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+</TABLE>
+
+
+    <nav class="navbar navbar-default bootsnav">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <!--<a class="navbar-brand" href="#">
+                </a>-->
             </div>
-        </nav>
-    </div>
-<div class="row" data-bind="router,visible:!user.showflash()">
+            <div id="navbar" class="collapse navbar-collapse ">
+                <!--<ul class="nav navbar-nav" data-bind="foreach:router.navigationModel">
+                    <li data-bind="css:{active:isActive}">
+                        <a data-bind="attr:{href:hash},html:title"></a>
+                    </li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="loader" data-bind="css: { active: router.isNavigating }">
+                        <i class="fa fa-spinner fa-spin fa-2x"></i>
+                    </li>
+                </ul>-->
+                <ul class="nav navbar-nav" data-in="fadeInDown" data-out="fadeOutUp">
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">基础设置</a>
+                        <ul class="dropdown-menu">
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">产品资料维护</a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="#">产品维护</a></li>
+                                    <li><a href="#">产品生产资料维护</a></li>
+                                    <li><a href="#">产品生产途程</a></li>
+                                    <li><a href="#">产品生产BOM</a></li>
+                                    <li><a href="#">产品别维护</a></li>
+                                    <li><a href="#">序列号防呆例外设定</a></li>
+                                    <li><a href="#">批次条码防呆例外设定</a></li>
+                                    <li><a href="#">条码规则设置</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="#">物料维护</a></li>
+                            <li><a href="#">标准生产途程</a></li>
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">生产布局定义</a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="#app/basesetting/FactoryList">工厂维护</a></li>
+                                    <li><a href="#app/basesetting/SEGList">车间维护</a></li>
+                                    <li><a href="#">生产线维护</a></li>
+                                    <li><a href="#">岗位资源维护</a></li>
+                                    <li><a href="#">岗位资源释放</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="#">生产时间定义</a></li>
+                            <li><a href="#">维修基本资料</a></li>
+                            <li><a href="#">返工基本资料维护</a></li>
+                            <li><a href="#">打印模板维护</a></li>
+                            <li><a href="#">基础资料导入</a></li>
+                            <li><a href="#">软件版本维护</a></li>
+                            <li><a href="#">工序和打印模板类型关系维护</a></li>
+                            <li><a href="#">标签打印参数维护</a></li>
 
-</div>
-<div class="row text-center" data-bind="visible:user.showflash()">
-    <progress></progress>
-</div>
+
+                            <!--<li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Sub Menu</a>
+                <ul class="dropdown-menu">
+                    <li><a href="#">Custom Menu</a></li>
+                    <li><a href="#">Custom Menu</a></li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Sub Menu</a>
+                        <ul class="dropdown-menu multi-dropdown">
+                            <li><a href="#">Custom Menu</a></li>
+                            <li><a href="#">Custom Menu</a></li>
+                            <li><a href="#">Custom Menu</a></li>
+                            <li><a href="#">Custom Menu</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#">Custom Menu</a></li>
+                </ul>
+            </li>-->
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">基础设置</a>
+                        <ul class="dropdown-menu">
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">产品资料维护</a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="#">产品维护</a></li>
+                                    <li><a href="#">产品生产资料维护</a></li>
+                                    <li><a href="#">产品生产途程</a></li>
+                                    <li><a href="#">产品生产BOM</a></li>
+                                    <li><a href="#">产品别维护</a></li>
+                                    <li><a href="#">序列号防呆例外设定</a></li>
+                                    <li><a href="#">批次条码防呆例外设定</a></li>
+                                    <li><a href="#">条码规则设置</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="#">物料维护</a></li>
+                            <li><a href="#">标准生产途程</a></li>
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">生产布局定义</a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="#app/basesetting/FactoryList">工厂维护</a></li>
+                                    <li><a href="#app/style1">车间维护</a></li>
+                                    <li><a href="#">生产线维护</a></li>
+                                    <li><a href="#">岗位资源维护</a></li>
+                                    <li><a href="#">岗位资源释放</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="#">生产时间定义</a></li>
+                            <li><a href="#">维修基本资料</a></li>
+                            <li><a href="#">返工基本资料维护</a></li>
+                            <li><a href="#">打印模板维护</a></li>
+                            <li><a href="#">基础资料导入</a></li>
+                            <li><a href="#">软件版本维护</a></li>
+                            <li><a href="#">工序和打印模板类型关系维护</a></li>
+                            <li><a href="#">标签打印参数维护</a></li>
+
+
+                            <!--<li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Sub Menu</a>
+            <ul class="dropdown-menu">
+                <li><a href="#">Custom Menu</a></li>
+                <li><a href="#">Custom Menu</a></li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Sub Menu</a>
+                    <ul class="dropdown-menu multi-dropdown">
+                        <li><a href="#">Custom Menu</a></li>
+                        <li><a href="#">Custom Menu</a></li>
+                        <li><a href="#">Custom Menu</a></li>
+                        <li><a href="#">Custom Menu</a></li>
+                    </ul>
+                </li>
+                <li><a href="#">Custom Menu</a></li>
+            </ul>
+        </li>-->
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">基础设置</a>
+                        <ul class="dropdown-menu">
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">产品资料维护</a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="#">产品维护</a></li>
+                                    <li><a href="#">产品生产资料维护</a></li>
+                                    <li><a href="#">产品生产途程</a></li>
+                                    <li><a href="#">产品生产BOM</a></li>
+                                    <li><a href="#">产品别维护</a></li>
+                                    <li><a href="#">序列号防呆例外设定</a></li>
+                                    <li><a href="#">批次条码防呆例外设定</a></li>
+                                    <li><a href="#">条码规则设置</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="#">物料维护</a></li>
+                            <li><a href="#">标准生产途程</a></li>
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">生产布局定义</a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="#app/basesetting/FactoryList">工厂维护</a></li>
+                                    <li><a href="#app/basesetting/SEGList">车间维护</a></li>
+                                    <li><a href="#">生产线维护</a></li>
+                                    <li><a href="#">岗位资源维护</a></li>
+                                    <li><a href="#">岗位资源释放</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="#">生产时间定义</a></li>
+                            <li><a href="#">维修基本资料</a></li>
+                            <li><a href="#">返工基本资料维护</a></li>
+                            <li><a href="#">打印模板维护</a></li>
+                            <li><a href="#">基础资料导入</a></li>
+                            <li><a href="#">软件版本维护</a></li>
+                            <li><a href="#">工序和打印模板类型关系维护</a></li>
+                            <li><a href="#">标签打印参数维护</a></li>
+
+
+                            <!--<li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Sub Menu</a>
+            <ul class="dropdown-menu">
+                <li><a href="#">Custom Menu</a></li>
+                <li><a href="#">Custom Menu</a></li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Sub Menu</a>
+                    <ul class="dropdown-menu multi-dropdown">
+                        <li><a href="#">Custom Menu</a></li>
+                        <li><a href="#">Custom Menu</a></li>
+                        <li><a href="#">Custom Menu</a></li>
+                        <li><a href="#">Custom Menu</a></li>
+                    </ul>
+                </li>
+                <li><a href="#">Custom Menu</a></li>
+            </ul>
+        </li>-->
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">基础设置</a>
+                        <ul class="dropdown-menu">
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">产品资料维护</a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="#">产品维护</a></li>
+                                    <li><a href="#">产品生产资料维护</a></li>
+                                    <li><a href="#">产品生产途程</a></li>
+                                    <li><a href="#">产品生产BOM</a></li>
+                                    <li><a href="#">产品别维护</a></li>
+                                    <li><a href="#">序列号防呆例外设定</a></li>
+                                    <li><a href="#">批次条码防呆例外设定</a></li>
+                                    <li><a href="#">条码规则设置</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="#">物料维护</a></li>
+                            <li><a href="#">标准生产途程</a></li>
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">生产布局定义</a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="#app/basesetting/FactoryList">工厂维护</a></li>
+                                    <li><a href="#app/style1">车间维护</a></li>
+                                    <li><a href="#">生产线维护</a></li>
+                                    <li><a href="#">岗位资源维护</a></li>
+                                    <li><a href="#">岗位资源释放</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="#">生产时间定义</a></li>
+                            <li><a href="#">维修基本资料</a></li>
+                            <li><a href="#">返工基本资料维护</a></li>
+                            <li><a href="#">打印模板维护</a></li>
+                            <li><a href="#">基础资料导入</a></li>
+                            <li><a href="#">软件版本维护</a></li>
+                            <li><a href="#">工序和打印模板类型关系维护</a></li>
+                            <li><a href="#">标签打印参数维护</a></li>
+
+
+                            <!--<li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Sub Menu</a>
+            <ul class="dropdown-menu">
+                <li><a href="#">Custom Menu</a></li>
+                <li><a href="#">Custom Menu</a></li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Sub Menu</a>
+                    <ul class="dropdown-menu multi-dropdown">
+                        <li><a href="#">Custom Menu</a></li>
+                        <li><a href="#">Custom Menu</a></li>
+                        <li><a href="#">Custom Menu</a></li>
+                        <li><a href="#">Custom Menu</a></li>
+                    </ul>
+                </li>
+                <li><a href="#">Custom Menu</a></li>
+            </ul>
+        </li>-->
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">基础设置</a>
+                        <ul class="dropdown-menu">
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">产品资料维护</a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="#">产品维护</a></li>
+                                    <li><a href="#">产品生产资料维护</a></li>
+                                    <li><a href="#">产品生产途程</a></li>
+                                    <li><a href="#">产品生产BOM</a></li>
+                                    <li><a href="#">产品别维护</a></li>
+                                    <li><a href="#">序列号防呆例外设定</a></li>
+                                    <li><a href="#">批次条码防呆例外设定</a></li>
+                                    <li><a href="#">条码规则设置</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="#">物料维护</a></li>
+                            <li><a href="#">标准生产途程</a></li>
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">生产布局定义</a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="#app/basesetting/FactoryList">工厂维护</a></li>
+                                    <li><a href="#app/style1">车间维护</a></li>
+                                    <li><a href="#">生产线维护</a></li>
+                                    <li><a href="#">岗位资源维护</a></li>
+                                    <li><a href="#">岗位资源释放</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="#">生产时间定义</a></li>
+                            <li><a href="#">维修基本资料</a></li>
+                            <li><a href="#">返工基本资料维护</a></li>
+                            <li><a href="#">打印模板维护</a></li>
+                            <li><a href="#">基础资料导入</a></li>
+                            <li><a href="#">软件版本维护</a></li>
+                            <li><a href="#">工序和打印模板类型关系维护</a></li>
+                            <li><a href="#">标签打印参数维护</a></li>
+
+
+                            <!--<li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Sub Menu</a>
+            <ul class="dropdown-menu">
+                <li><a href="#">Custom Menu</a></li>
+                <li><a href="#">Custom Menu</a></li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Sub Menu</a>
+                    <ul class="dropdown-menu multi-dropdown">
+                        <li><a href="#">Custom Menu</a></li>
+                        <li><a href="#">Custom Menu</a></li>
+                        <li><a href="#">Custom Menu</a></li>
+                        <li><a href="#">Custom Menu</a></li>
+                    </ul>
+                </li>
+                <li><a href="#">Custom Menu</a></li>
+            </ul>
+        </li>-->
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">基础设置</a>
+                        <ul class="dropdown-menu">
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">产品资料维护</a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="#">产品维护</a></li>
+                                    <li><a href="#">产品生产资料维护</a></li>
+                                    <li><a href="#">产品生产途程</a></li>
+                                    <li><a href="#">产品生产BOM</a></li>
+                                    <li><a href="#">产品别维护</a></li>
+                                    <li><a href="#">序列号防呆例外设定</a></li>
+                                    <li><a href="#">批次条码防呆例外设定</a></li>
+                                    <li><a href="#">条码规则设置</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="#">物料维护</a></li>
+                            <li><a href="#">标准生产途程</a></li>
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">生产布局定义</a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="#app/basesetting/FactoryList">工厂维护</a></li>
+                                    <li><a href="#app/style1">车间维护</a></li>
+                                    <li><a href="#">生产线维护</a></li>
+                                    <li><a href="#">岗位资源维护</a></li>
+                                    <li><a href="#">岗位资源释放</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="#">生产时间定义</a></li>
+                            <li><a href="#">维修基本资料</a></li>
+                            <li><a href="#">返工基本资料维护</a></li>
+                            <li><a href="#">打印模板维护</a></li>
+                            <li><a href="#">基础资料导入</a></li>
+                            <li><a href="#">软件版本维护</a></li>
+                            <li><a href="#">工序和打印模板类型关系维护</a></li>
+                            <li><a href="#">标签打印参数维护</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">基础设置</a>
+                        <ul class="dropdown-menu">
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">产品资料维护</a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="#">产品维护</a></li>
+                                    <li><a href="#">产品生产资料维护</a></li>
+                                    <li><a href="#">产品生产途程</a></li>
+                                    <li><a href="#">产品生产BOM</a></li>
+                                    <li><a href="#">产品别维护</a></li>
+                                    <li><a href="#">序列号防呆例外设定</a></li>
+                                    <li><a href="#">批次条码防呆例外设定</a></li>
+                                    <li><a href="#">条码规则设置</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="#">物料维护</a></li>
+                            <li><a href="#">标准生产途程</a></li>
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">生产布局定义</a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="#app/basesetting/FactoryList">工厂维护</a></li>
+                                    <li><a href="#app/">车间维护</a></li>
+                                    <li><a href="#">生产线维护</a></li>
+                                    <li><a href="#">岗位资源维护</a></li>
+                                    <li><a href="#">岗位资源释放</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="#">生产时间定义</a></li>
+                            <li><a href="#">维修基本资料</a></li>
+                            <li><a href="#">返工基本资料维护</a></li>
+                            <li><a href="#">打印模板维护</a></li>
+                            <li><a href="#">基础资料导入</a></li>
+                            <li><a href="#">软件版本维护</a></li>
+                            <li><a href="#">工序和打印模板类型关系维护</a></li>
+                            <li><a href="#">标签打印参数维护</a></li>
+
+
+                            <!--<li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Sub Menu</a>
+                <ul class="dropdown-menu">
+                    <li><a href="#">Custom Menu</a></li>
+                    <li><a href="#">Custom Menu</a></li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Sub Menu</a>
+                        <ul class="dropdown-menu multi-dropdown">
+                            <li><a href="#">Custom Menu</a></li>
+                            <li><a href="#">Custom Menu</a></li>
+                            <li><a href="#">Custom Menu</a></li>
+                            <li><a href="#">Custom Menu</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#">Custom Menu</a></li>
+                </ul>
+            </li>-->
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">基础设置</a>
+                        <ul class="dropdown-menu">
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">产品资料维护</a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="#">产品维护</a></li>
+                                    <li><a href="#">产品生产资料维护</a></li>
+                                    <li><a href="#">产品生产途程</a></li>
+                                    <li><a href="#">产品生产BOM</a></li>
+                                    <li><a href="#">产品别维护</a></li>
+                                    <li><a href="#">序列号防呆例外设定</a></li>
+                                    <li><a href="#">批次条码防呆例外设定</a></li>
+                                    <li><a href="#">条码规则设置</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="#">物料维护</a></li>
+                            <li><a href="#">标准生产途程</a></li>
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">生产布局定义</a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="#app/basesetting/FactoryList">工厂维护</a></li>
+                                    <li><a href="#app/style1">车间维护</a></li>
+                                    <li><a href="#">生产线维护</a></li>
+                                    <li><a href="#">岗位资源维护</a></li>
+                                    <li><a href="#">岗位资源释放</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="#">生产时间定义</a></li>
+                            <li><a href="#">维修基本资料</a></li>
+                            <li><a href="#">返工基本资料维护</a></li>
+                            <li><a href="#">打印模板维护</a></li>
+                            <li><a href="#">基础资料导入</a></li>
+                            <li><a href="#">软件版本维护</a></li>
+                            <li><a href="#">工序和打印模板类型关系维护</a></li>
+                            <li><a href="#">标签打印参数维护</a></li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">基础设置</a>
+                        <ul class="dropdown-menu">
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">产品资料维护</a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="#">产品维护</a></li>
+                                    <li><a href="#">产品生产资料维护</a></li>
+                                    <li><a href="#">产品生产途程</a></li>
+                                    <li><a href="#">产品生产BOM</a></li>
+                                    <li><a href="#">产品别维护</a></li>
+                                    <li><a href="#">序列号防呆例外设定</a></li>
+                                    <li><a href="#">批次条码防呆例外设定</a></li>
+                                    <li><a href="#">条码规则设置</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="#">物料维护</a></li>
+                            <li><a href="#">标准生产途程</a></li>
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">生产布局定义</a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="#app/basesetting/FactoryList">工厂维护</a></li>
+                                    <li><a href="#app/style1">车间维护</a></li>
+                                    <li><a href="#">生产线维护</a></li>
+                                    <li><a href="#">岗位资源维护</a></li>
+                                    <li><a href="#">岗位资源释放</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="#">生产时间定义</a></li>
+                            <li><a href="#">维修基本资料</a></li>
+                            <li><a href="#">返工基本资料维护</a></li>
+                            <li><a href="#">打印模板维护</a></li>
+                            <li><a href="#">基础资料导入</a></li>
+                            <li><a href="#">软件版本维护</a></li>
+                            <li><a href="#">工序和打印模板类型关系维护</a></li>
+                            <li><a href="#">标签打印参数维护</a></li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">基础设置</a>
+                        <ul class="dropdown-menu">
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">产品资料维护</a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="#">产品维护</a></li>
+                                    <li><a href="#">产品生产资料维护</a></li>
+                                    <li><a href="#">产品生产途程</a></li>
+                                    <li><a href="#">产品生产BOM</a></li>
+                                    <li><a href="#">产品别维护</a></li>
+                                    <li><a href="#">序列号防呆例外设定</a></li>
+                                    <li><a href="#">批次条码防呆例外设定</a></li>
+                                    <li><a href="#">条码规则设置</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="#">物料维护</a></li>
+                            <li><a href="#">标准生产途程</a></li>
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">生产布局定义</a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="#app/basesetting/FactoryList">工厂维护</a></li>
+                                    <li><a href="#app/style1">车间维护</a></li>
+                                    <li><a href="#">生产线维护</a></li>
+                                    <li><a href="#">岗位资源维护</a></li>
+                                    <li><a href="#">岗位资源释放</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="#">生产时间定义</a></li>
+                            <li><a href="#">维修基本资料</a></li>
+                            <li><a href="#">返工基本资料维护</a></li>
+                            <li><a href="#">打印模板维护</a></li>
+                            <li><a href="#">基础资料导入</a></li>
+                            <li><a href="#">软件版本维护</a></li>
+                            <li><a href="#">工序和打印模板类型关系维护</a></li>
+                            <li><a href="#">标签打印参数维护</a></li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">基础设置</a>
+                        <ul class="dropdown-menu">
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">产品资料维护</a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="#">产品维护</a></li>
+                                    <li><a href="#">产品生产资料维护</a></li>
+                                    <li><a href="#">产品生产途程</a></li>
+                                    <li><a href="#">产品生产BOM</a></li>
+                                    <li><a href="#">产品别维护</a></li>
+                                    <li><a href="#">序列号防呆例外设定</a></li>
+                                    <li><a href="#">批次条码防呆例外设定</a></li>
+                                    <li><a href="#">条码规则设置</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="#">物料维护</a></li>
+                            <li><a href="#">标准生产途程</a></li>
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">生产布局定义</a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="#app/basesetting/FactoryList">工厂维护</a></li>
+                                    <li><a href="#app/style1">车间维护</a></li>
+                                    <li><a href="#">生产线维护</a></li>
+                                    <li><a href="#">岗位资源维护</a></li>
+                                    <li><a href="#">岗位资源释放</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="#">生产时间定义</a></li>
+                            <li><a href="#">维修基本资料</a></li>
+                            <li><a href="#">返工基本资料维护</a></li>
+                            <li><a href="#">打印模板维护</a></li>
+                            <li><a href="#">基础资料导入</a></li>
+                            <li><a href="#">软件版本维护</a></li>
+                            <li><a href="#">工序和打印模板类型关系维护</a></li>
+                            <li><a href="#">标签打印参数维护</a></li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">基础设置</a>
+                        <ul class="dropdown-menu">
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">产品资料维护</a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="#">产品维护</a></li>
+                                    <li><a href="#">产品生产资料维护</a></li>
+                                    <li><a href="#">产品生产途程</a></li>
+                                    <li><a href="#">产品生产BOM</a></li>
+                                    <li><a href="#">产品别维护</a></li>
+                                    <li><a href="#">序列号防呆例外设定</a></li>
+                                    <li><a href="#">批次条码防呆例外设定</a></li>
+                                    <li><a href="#">条码规则设置</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="#">物料维护</a></li>
+                            <li><a href="#">标准生产途程</a></li>
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">生产布局定义</a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="#app/basesetting/FactoryList">工厂维护</a></li>
+                                    <li><a href="#app/style1">车间维护</a></li>
+                                    <li><a href="#">生产线维护</a></li>
+                                    <li><a href="#">岗位资源维护</a></li>
+                                    <li><a href="#">岗位资源释放</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="#">生产时间定义</a></li>
+                            <li><a href="#">维修基本资料</a></li>
+                            <li><a href="#">返工基本资料维护</a></li>
+                            <li><a href="#">打印模板维护</a></li>
+                            <li><a href="#">基础资料导入</a></li>
+                            <li><a href="#">软件版本维护</a></li>
+                            <li><a href="#">工序和打印模板类型关系维护</a></li>
+                            <li><a href="#">标签打印参数维护</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                <!--<ul class="nav navbar-nav navbar-right">
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                            <span class="glyphicon glyphicon-user"></span>
+                            <span class="caret"></span>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">注销</a></li>
+                            <li><a href="#">修改密码</a></li>
+                        </ul>
+                    </li>
+
+                </ul>-->
+            </div>
+        </div>
+    </nav>
+    <!--<div class="page-host" data-bind="router: { transition:'entrance' }"></div>-->
+    <div data-bind="router: { transition:'entrance' }"></div>
+
 

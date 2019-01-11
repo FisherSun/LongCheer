@@ -46,6 +46,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="BenQGuru.eMES.Web.BLL">
+      <HintPath>..\BenQGuru.eMES.Web.BLL\bin\Debug\BenQGuru.eMES.Web.BLL.dll</HintPath>
+    </Reference>
     <Reference Include="BenQGuru.eMES.Web.Common">
       <HintPath>..\BenQGuru.eMES.Web.Common\bin\Debug\BenQGuru.eMES.Web.Common.dll</HintPath>
     </Reference>
@@ -232,6 +235,8 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="config\WebApiApplication.cs" />
+    <Compile Include="Controllers\FactoryController.cs" />
+    <Compile Include="Controllers\SEGController.cs" />
     <Compile Include="Controllers\TestController.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Controllers\WebApiBaseController.cs" />
@@ -242,12 +247,15 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\bootsnav.css" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\cxcalendar.css" />
     <Content Include="Content\durandal.css" />
+    <Content Include="Content\font-awesome.min.css" />
+    <Content Include="Content\htmleaf-demo.css" />
     <Content Include="Content\images\Add.png" />
     <Content Include="Content\images\AllocateSN.png" />
     <Content Include="Content\images\analyse.png" />
@@ -500,6 +508,7 @@
     <Content Include="Content\layer-v3.1.1\test.html" />
     <Content Include="Content\layer-v3.1.1\更新日志.txt" />
     <Content Include="Content\siteBlue.css" />
+    <Content Include="Content\starterkit.css" />
     <Content Include="Content\zTree_v3\css\awesomeStyle\awesome.css" />
     <Content Include="Content\zTree_v3\css\awesomeStyle\img\loading.gif" />
     <Content Include="Content\zTree_v3\css\demo.css" />
@@ -534,18 +543,20 @@
     <Content Include="Content\zTree_v3\js\jquery.ztree.exedit.min.js" />
     <Content Include="Content\zTree_v3\js\jquery.ztree.exhide.js" />
     <Content Include="Content\zTree_v3\js\jquery.ztree.exhide.min.js" />
+    <Content Include="fonts\fontawesome-webfont.svg" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="fonts\icomoon.svg" />
     <Content Include="Global.asax" />
     <Content Include="index.html" />
     <Content Include="login.html" />
     <Content Include="login.js" />
     <Content Include="Scripts\almond-custom.js" />
-    <Content Include="Scripts\app\demo.html" />
-    <Content Include="Scripts\app\demo.js" />
+    <Content Include="Scripts\app\basesetting\FactoryList.html" />
+    <Content Include="Scripts\app\basesetting\FactoryList.js" />
+    <Content Include="Scripts\app\basesetting\SEGList.html" />
+    <Content Include="Scripts\app\basesetting\SEGList.js" />
     <Content Include="Scripts\app\error.html" />
     <Content Include="Scripts\app\error.js" />
-    <Content Include="Scripts\app\flash.html" />
-    <Content Include="Scripts\app\flash.js" />
     <Content Include="Scripts\app\home.html" />
     <Content Include="Scripts\app\home.js" />
     <Content Include="Scripts\app\login.html" />
@@ -553,8 +564,11 @@
     <Content Include="Scripts\app\main.js" />
     <Content Include="Scripts\app\shell.html" />
     <Content Include="Scripts\app\shell.js" />
+    <Content Include="Scripts\app\style1.html" />
+    <Content Include="Scripts\app\style1.js" />
     <Content Include="Scripts\app\testlist.html" />
     <Content Include="Scripts\app\testlist.js" />
+    <Content Include="Scripts\bootsnav.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\Config\services.js" />
@@ -567,6 +581,13 @@
     <Content Include="Content\layer-v3.1.1\文档\获得layim.url" />
     <Content Include="Content\zTree_v3\css\awesomeStyle\awesome.less" />
     <Content Include="Content\zTree_v3\css\awesomeStyle\fa.less" />
+    <Content Include="fonts\fontawesome-webfont.eot" />
+    <Content Include="fonts\fontawesome-webfont.ttf" />
+    <Content Include="fonts\fontawesome-webfont.woff" />
+    <Content Include="fonts\FontAwesome.otf" />
+    <Content Include="fonts\icomoon.eot" />
+    <Content Include="fonts\icomoon.ttf" />
+    <Content Include="fonts\icomoon.woff" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\bootstrap3-typeahead.js" />
     <Content Include="Scripts\bootstrap3-typeahead.min.js" />
@@ -942,12 +963,6 @@
       <DependentUpon>Web.config</DependentUpon>
     </Content>
     <Content Include="Content\Site.css" />
-    <Content Include="Views\Web.config" />
-    <Content Include="Views\_ViewStart.cshtml" />
-    <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="Views\Shared\Error.cshtml" />
-    <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Home\FLogin.cshtml" />
     <Content Include="Scripts\knockout.validation.min.js.map" />
     <Content Include="Scripts\underscore.min.map" />
   </ItemGroup>
@@ -955,7 +970,6 @@
     <Folder Include="App_Data\" />
     <Folder Include="Models\" />
     <Folder Include="Scripts\app\alert\" />
-    <Folder Include="Scripts\app\basesetting\" />
     <Folder Include="Scripts\app\iqc\" />
     <Folder Include="Scripts\app\momodel\" />
     <Folder Include="Scripts\app\oqc\" />

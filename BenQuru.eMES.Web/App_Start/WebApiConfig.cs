@@ -12,11 +12,16 @@ namespace BenQuru.eMES.Web
             // Web API 配置和服务
             //config.AddODataQueryFilter();
             //config.MessageHandlers.Add(new CultureHandler());
-
             //config.Filters.Add(new ApiActionFilter());
 
             // Web API 路由
             config.MapHttpAttributeRoutes();
+
+            config.Routes.MapHttpRoute(
+               name: "DefaultApi",
+               routeTemplate: "api/{controller}/{id}",
+               defaults: new { id = RouteParameter.Optional }
+           );
 
             config.Routes.MapHttpRoute(
                 name: "CustomApi",
@@ -24,11 +29,7 @@ namespace BenQuru.eMES.Web
                 defaults: new { id = RouteParameter.Optional }
             );
 
-            config.Routes.MapHttpRoute(
-                name: "DefaultApi",
-                routeTemplate: "api/{controller}/{id}",
-                defaults: new { id = RouteParameter.Optional }
-            );
+           
         }
     }
 }

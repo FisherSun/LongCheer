@@ -48,8 +48,8 @@ namespace BenQuru.eMES.Web
             //    routeTemplate: "api/{controller}/{id}",
             //    defaults: new { id = RouteParameter.Optional }
             //);
-            
-            ////config.Services.Replace(typeof(IHttpControllerSelector), new WebApiControllerSelector(config));
+
+            //config.Services.Replace(typeof(IHttpControllerSelector), new WebApiControllerSelector(config));
             ////将默认xml返回数据格式改为json
             //config.Formatters.XmlFormatter.SupportedMediaTypes.Clear();
             //config.Formatters.JsonFormatter.MediaTypeMappings.Add(new QueryStringMapping("datatype", "json", "application/json"));
